@@ -37,17 +37,19 @@ const ProjectGrid = () => {
 
   return (
     <>
-    <div className="grid grid-cols-2 h-screen mt-24"> {/* Add h-screen for full height */}
+    <div className="grid grid-cols-2 p-5 gap-5 h-content bg-zinc-900 shadow-lg	"> {/* Add h-screen for full height */}
       {images.map((imageObj, index) => (
         <div className="relative w-full h-full">
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 2 } }}
             exit={{ opacity: 0 }}
-            className="relative flex items-center justify-center w-full h-full group overflow-hidden"
+            className="relative flex items-center justify-center w-full h-full group overflow-hidden bg-white"
+
           >
             <motion.img
               whileHover={{
+               
                 filter: 'blur(2px)',
                 scale: 1.1,
                 opacity: 0.5,
