@@ -15,31 +15,29 @@ function App() {
   }
 
 
+  const scrollToElement = (element) => {
+
+
+    return element.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+      inline: 'center',
+    });
+  }
+
   const centerElement = (scrollElement) => {
     
     switch(scrollElement){
       case 'HOME':
-        homeRef.current.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-          inline: 'center',
-        });
+        scrollToElement(homeRef)
         break;
       
-      case 'PORTFOLIO':
-        projectRef.current.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-          inline: 'center',
-        });
+      case 'PROJECTS':
+        scrollToElement(projectRef)
         break;
 
       case 'ABOUT':
-        terminalRef.current.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-          inline: 'center',
-        });
+        scrollToElement(terminalRef)
         break;
 
 

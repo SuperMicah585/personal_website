@@ -4,7 +4,7 @@ const NavBar = ({scrollElementCallBack}) =>{
 
 const items = [
     'HOME',
-    'PORTFOLIO',
+    'PROJECTS',
     'ABOUT'
 
 

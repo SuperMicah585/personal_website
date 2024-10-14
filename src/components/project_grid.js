@@ -7,10 +7,10 @@ import worldle from './project_images/worldle.jpg';
 
 const ProjectGrid = forwardRef((_, ref) => {
   const images = [
-    { url: 'https://climbwfriends-production.up.railway.app/demo/', name: 'Climb w Friends', image: climbingmap },
-    { url: 'https://jasonwadephelps-art-production.up.railway.app/', name: 'Jason Art', image: jasonart },
-    { url: 'https://twilio-prefix-map-na-8377-dev.twil.io/index.html', name: 'Twilio Prefix Map', image: twiliomap },
-    { url: 'https://supermicah585.github.io/Worldle_V2/', name: 'Worldle', image: worldle }
+    { url: 'https://climbwfriends-production.up.railway.app/demo/', github:'https://github.com/SuperMicah585/ClimbWFriends', name: 'Climb w Friends', image: climbingmap },
+    { url: 'https://jasonwadephelps-art-production.up.railway.app/', github: 'https://github.com/SuperMicah585/JasonWadePhelps-Art', name: 'Jason Art', image: jasonart },
+    { url: 'https://twilio-prefix-map-na-8377-dev.twil.io/index.html', github: 'https://github.com/TwilioMicah/Area_Code_Map', name: 'Twilio Prefix Map', image: twiliomap },
+    { url: 'https://supermicah585.github.io/Worldle_V2/', github: 'https://github.com/SuperMicah585/Worldle_V2',name: 'Worldle', image: worldle }
   ];
 
 
@@ -28,11 +28,10 @@ const ProjectGrid = forwardRef((_, ref) => {
   ]
 
 
- const handleIconClick = () =>{
-
-  return(
-    console.log("Hi")
-  )
+ const handleIconClick = (svg,imageObj) =>{
+  const urlToOpen = svg==='Website'?imageObj.url:imageObj.github
+  return window.open(urlToOpen, "_blank")
+  
  }
  
 
@@ -71,7 +70,7 @@ const ProjectGrid = forwardRef((_, ref) => {
                     <div
                       key={svgIndex}
                       className="flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-slate-500 hover:bg-opacity-50 rounded-full p-2 pointer-events-auto" // Allow pointer events for the SVG wrapper
-                      onClick={() => handleIconClick(svg)} // Call the click handler with the svg
+                      onClick={() => handleIconClick(svg.name,imageObj)} // Call the click handler with the svg
                     >
                       {svg.svg}
                   
