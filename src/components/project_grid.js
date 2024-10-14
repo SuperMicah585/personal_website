@@ -1,11 +1,11 @@
-import React from 'react';
+import React,{useState,useEffect,forwardRef} from 'react'
 import { motion } from "framer-motion";
 import climbingmap from './project_images/climbingmap.jpeg';
 import jasonart from './project_images/Jasonart.jpeg';
 import twiliomap from './project_images/twiliomap.jpg';
 import worldle from './project_images/worldle.jpg';
 
-const ProjectGrid = () => {
+const ProjectGrid = forwardRef((_, ref) => {
   const images = [
     { url: 'https://climbwfriends-production.up.railway.app/demo/', name: 'Climb w Friends', image: climbingmap },
     { url: 'https://jasonwadephelps-art-production.up.railway.app/', name: 'Jason Art', image: jasonart },
@@ -37,14 +37,14 @@ const ProjectGrid = () => {
  
 
  return (
-  <div className = 'h-content bg-zinc-900'>
+  <div ref={ref} className = 'h-content bg-zinc-900'>
     <div className = 'p-20 bg-zinc-900'> </div>
    <div className= 'ml-16 p-3 bg-zinc-900 text-yellow-300 text-opacity-75 text-6xl font-termina font-semibold'>PROJECTS  </div>
     <div className="grid grid-cols-2 ml-10 p-10 gap-5">
     
       {/* Loop over images array */}
       {images.map((imageObj, index) => (
-        <div className="relative object-contain h-full " key={index}>
+        <div className="relative object-contain" key={index}>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 2 } }}
@@ -87,6 +87,6 @@ const ProjectGrid = () => {
   </div>
 );
 
-};
+});
 
 export default ProjectGrid;

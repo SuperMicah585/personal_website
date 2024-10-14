@@ -1,6 +1,6 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,forwardRef} from 'react'
 
-const Terminal = () => {
+const Terminal = forwardRef((_, ref) => {
 
     const [inputValue, setInputValue] = useState('');
     const [splitOnPeriodArray,setSplitOnPeriodArray] = useState([])
@@ -39,8 +39,8 @@ const Terminal = () => {
     <div className="h-10 w-full border-b-2 border-zinc-950"></div>,<div className="h-10 w-full border-b-2 border-zinc-950"></div>]
 return(
     <>
-       <div className = 'p-20 bg-zinc-900'> </div>
-        <div className = 'flex relative flex-col h-content bg-zinc-900 p-10'>
+       <div className = 'p-12 bg-zinc-900'> </div>
+        <div ref={ref} className = 'flex relative flex-col h-content bg-zinc-900 p-10'>
             <div className = 'absolute text-opacity-75 font-semibold ml-10 top-0 text-yellow-300 z-50 text-6xl font-termina'>ABOUT ME</div>
 
             <div className = 'mt-16 ml-10 w-[80%] h-10'>
@@ -81,4 +81,4 @@ return(
     )
 
 
-}; export default Terminal;
+}); export default Terminal;

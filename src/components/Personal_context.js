@@ -1,6 +1,6 @@
+import React,{useState,useEffect,forwardRef} from 'react'
 
-
-const Personal_Context = () =>{
+const Personal_Context = forwardRef((_, ref) =>{
 
     const GifComponent = () => {
         return (
@@ -55,7 +55,7 @@ Example:
     return(
         <>
         <GifComponent/>
-        <div className = 'absolute top-0 left-0 text-md h-screen w-screen grid grid-cols-3 place-items-center p-10'>
+        <div ref={ref} className = 'absolute top-0 left-0 text-md h-screen w-screen grid grid-cols-3 place-items-center p-10'>
      
             {
 
@@ -75,4 +75,4 @@ Example:
         </div>
         </>
     )
-}; export default Personal_Context;
+}); export default Personal_Context;
