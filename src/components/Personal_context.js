@@ -8,17 +8,19 @@ const Personal_Context = () =>{
             <img 
               src="https://media.tenor.com/LlbU6ZEXGHsAAAAi/bear-dance.gif" 
               alt="Banana Cheerer"
-              className="h-screen z-50 opacity-25 hover:opacity-100" // You can customize the size and styling
+              className="h-screen z-50 opacity-25 " // You can customize the size and styling
             />
           </div>
         );
       };
 
 const textArray = [
-'Hello,','','',
-'','I','',
-'','AM','',
-'','','MICAH!']
+'HEY,','','',
+'',"I'M",'',
+'','','MICAH']
+
+
+
 
 
 
@@ -29,34 +31,46 @@ const textArray = [
 
 /*
  SDK ideas to expose personal information.
-
-Projects: 
+*******
+Micah:
 --
-query params:
+endpoints:
 
-name, contains, limit
+Coding projects
+params: name
 
---
+Hobbies
+params: name
+
+Contact
+params: name
+
+
 Example:
-            client.Micahs_project.list(
+            client.micah.coding_projects.list(
                 name = 'jasonart'
             )
-
-
 */
 
     return(
         <>
         <GifComponent/>
-        <div className = 'absolute top-0 left-0 text-md h-screen w-screen grid grid-cols-3 place-items-center gap-10 p-10'>
+        <div className = 'absolute top-0 left-0 text-md h-screen w-screen grid grid-cols-3 place-items-center p-10'>
      
             {
 
             textArray.map((text)=>
+                text ==='WELCOME' || text ==='TO MY' || text === 'PORTFOLIO'?
+                <div className = 'text-7xl text-blue-500 text-wrap object-fit font-moret overflow-hidden text-ellipsis'>{text}</div>:
+                <div className = 'text-9xl text-blue-500 text-wrap object-fit font-moret overflow-hidden text-ellipsis'>{text}</div>
                 
-                <div className = 'text-9xl text-wrap object-fit text-white font-moret overflow-hidden text-ellipsis'>{text}</div>
                 )
+
+            
+            
+            
             }
+
                 
         </div>
         </>

@@ -8,6 +8,9 @@ module.exports = {
         termina: ['Termina', 'sans-serif'],
         moret: ['Moret', 'serif'],
       },
+      transitionDuration: {
+        '2000': '2000ms',
+      },
       colors: {
         'smoke-gray': '#1B1B1B',
         'jet': '#000401',
