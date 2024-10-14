@@ -16,7 +16,7 @@ const Terminal = () => {
 
     const tailwindColors = [
 
-        'text-orange-200','text-indigo-200', 'text-green-200','text-cyan-500'
+        'text-fuchsia-500','text-indigo-200', 'text-green-200','text-cyan-500'
 
     ]
 /*
@@ -38,11 +38,13 @@ const Terminal = () => {
     <div className="h-10 w-full border-b-2 border-zinc-950"></div>,<div className="h-10 w-full border-b-2 border-zinc-950"></div>,<div className="h-10 w-full border-b-2 border-zinc-950"></div>,
     <div className="h-10 w-full border-b-2 border-zinc-950"></div>,<div className="h-10 w-full border-b-2 border-zinc-950"></div>]
 return(
-        <div className = 'flex relative flex-col h-screen bg-zinc-900 p-24'>
-            <div className = 'absolute front-bold ml-10 mt-10 top-0 text-blue-500 z-50 text-6xl font-termina'>ABOUT ME</div>
+    <>
+       <div className = 'p-20 bg-zinc-900'> </div>
+        <div className = 'flex relative flex-col h-content bg-zinc-900 p-10'>
+            <div className = 'absolute text-opacity-75 font-semibold ml-10 top-0 text-yellow-300 z-50 text-6xl font-termina'>ABOUT ME</div>
 
-            <div className = 'mt-10 ml-10 w-[80%] h-10'>
-            <div className="absolute font-termina pl-2 py-1 rounded-lg pointer-events-none">
+            <div className = 'mt-16 ml-10 w-[80%] h-10'>
+            <div className="absolute font-termina pl-2 py-2 rounded-lg pointer-events-none">
             {splitOnPeriodArray.map((item,index)=>
             
             (index>0? <><span className  = 'font-termina text-white'>.</span><span className = {tailwindColors[index]}>{item}</span></>:
@@ -75,6 +77,7 @@ return(
            </div>
 
         </div>
+        </>
     )
 
 

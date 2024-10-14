@@ -17,7 +17,7 @@ const Personal_Context = () =>{
 const textArray = [
 'HEY,','','',
 '',"I'M",'',
-'','','MICAH']
+'','','MICAH!']
 
 
 

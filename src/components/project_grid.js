@@ -37,16 +37,19 @@ const ProjectGrid = () => {
  
 
  return (
-  <>
-    <div className="grid grid-cols-2 p-5 gap-5 h-content bg-zinc-900 shadow-lg">
+  <div className = 'h-content bg-zinc-900'>
+    <div className = 'p-20 bg-zinc-900'> </div>
+   <div className= 'ml-16 p-3 bg-zinc-900 text-yellow-300 text-opacity-75 text-6xl font-termina font-semibold'>PROJECTS  </div>
+    <div className="grid grid-cols-2 ml-10 p-10 gap-5">
+    
       {/* Loop over images array */}
       {images.map((imageObj, index) => (
-        <div className="relative w-full h-full" key={index}>
+        <div className="relative object-contain h-full " key={index}>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 2 } }}
             exit={{ opacity: 0 }}
-            className="relative flex items-center justify-center w-full h-full group overflow-hidden bg-white"
+            className="relative flex items-center justify-center w-full h-full group rounded overflow-hidden bg-white"
           >
             <img
 
@@ -81,7 +84,7 @@ const ProjectGrid = () => {
         </div>
       ))}
     </div>
-  </>
+  </div>
 );
 
 };
