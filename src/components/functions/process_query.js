@@ -7,7 +7,7 @@ const work_experience_data = [{job_title: "Technical Support Engineer"},{job_tit
 
 // List function for accessing data from micahData
 const list = (resource, name = null) => {
-
+//add a date_after,date_before, and description_contains method
         return micahData[resource];
     
 };

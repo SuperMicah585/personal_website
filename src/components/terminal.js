@@ -108,7 +108,7 @@ const handleStop = (e, data) => {
   
     // First, style the keys (before the colon)
     const formattedKeysJSON = jsonString.replace(/"([^"]+)":/g, (match, p1) => {
-      return `<span class="text-green-800 font-termina font-bold">"${p1}":</span>`;
+      return `<span class="text-blue-500 font-termina font-bold">"${p1}":</span>`;
     });
   
     // Second, style the values (string values after the closing span tag)
