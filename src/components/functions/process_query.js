@@ -70,7 +70,7 @@ const parseArray = (queryArray) => {
     return eval(queryString); // Pass the identifier as the 3rd element in queryArray
     }
     catch{
-        return [{error:'Yeah that resource does not exist. Micah is working still working on aquiring more personality depth.'}]
+        return [{error:'Well you managed to break something'}]
     }
 }
 else{
