@@ -98,7 +98,6 @@ const handleStop = (e, data) => {
 
    
     const micahsDataObject = parseArray(splitOnPeriodArray)
-    console.log(micahsDataObject,'hi')
     setTerminalDisplay(micahsDataObject)
 
   }

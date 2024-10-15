@@ -8,11 +8,41 @@ const work_experience_data = [{job_title: "Technical Support Engineer"},{job_tit
 // List function for accessing data from micahData
 const list = (resource, name = null) => {
     if (name) {
-        return micahData[resource].find(item => item.identifier === name);
+        return micahData[resource].find(item => item.name === name);
     } else {
         return micahData[resource];
     }
 };
+
+const fetch = (resource, identifier) => {
+    switch(resource){
+        case 'projects':
+            return grab_query_data('project_name', identifier,resource);  // Only return grab_query_data here
+        case 'hobbies':
+            return grab_query_data('hobby_name', identifier,resource);   // Corrected: Only return grab_query_data
+        case 'tech_stack':
+            return grab_query_data('tech_name', identifier,resource);    // Corrected: Only return grab_query_data
+        case 'education':
+            return grab_query_data('education_name', identifier,resource); // Corrected: Only return grab_query_data
+        case 'work_experience':
+            return grab_query_data('job_title', identifier,resource);     // Corrected: Only return grab_query_data
+        default:
+            return [{error:"Query resource not found in the fetch."}]; // Add a default case to handle invalid inputs
+    }
+};
+
+
+const grab_query_data = (key,identifier,resource) =>{
+
+    if (identifier) {
+        return micahData[resource].find(item =>item[key] === identifier)?micahData[resource].find(item =>item[key] === identifier):{error: "Query param not valid"};
+    } else {
+        return [{error:"Please include a query param in your fetch"}];
+    }
+
+}
+
+
 
 // Data sources
 const micahData = {
@@ -25,18 +55,19 @@ const micahData = {
 
 // micah object with methods to access the data
 const micah = {
-    projects: {list: (identifier = null) => list('projects', identifier)},
-    hobbies: {list: (identifier = null) => list('hobbies', identifier)},
-    tech_stack: {list: (identifier = null) => list('tech_stack', identifier)},
-    education: {list: (identifier = null) => list('education', identifier)},
-    work_experience: {list: (identifier = null) => list('work_experience', identifier)}
+    projects: {list: (identifier = null) => list('projects', identifier), fetch: (identifier) => fetch('projects', identifier)},
+    hobbies: {list: (identifier = null) => list('hobbies', identifier), fetch: (identifier) => fetch('hobbies', identifier)},
+    tech_stack: {list: (identifier = null) => list('tech_stack', identifier), fetch: (identifier) => fetch('tech_stack', identifier)},
+    education: {list: (identifier = null) => list('education', identifier), fetch: (identifier) => fetch('education', identifier)},
+    work_experience: {list: (identifier = null) => list('work_experience', identifier), fetch: (identifier) => fetch('work_experience', identifier)}
 };
 
 // parseArray function that uses micah object to list data based on input
 const parseArray = (queryArray) => {
+    const queryString = `${queryArray[0]}.${queryArray[1]}.${queryArray[2]}`;
     if(queryArray[0] ==='micah'){
     try{
-    return (micah[queryArray[1]].list()); // Pass the identifier as the 3rd element in queryArray
+    return eval(queryString); // Pass the identifier as the 3rd element in queryArray
     }
     catch{
         return [{error:'Yeah that resource does not exist. Micah is working still working on aquiring more personality depth.'}]
