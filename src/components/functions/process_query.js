@@ -1,9 +1,9 @@
 // Individual data arrays - move these definitions above the micah object
-const project_data = [{identifier: "Climb w Friends"},{identifier: "Jason Art"},{identifier: "Worldle"},{identifier: "Twilio Prefix Map"}];
-const hobby_data = [{identifier: "Rock Climbing"},{identifier: "Dancing"},{identifier: "Running"},{identifier: "Video Games"}];
-const tech_stack_data = [{identifier: "Python"},{identifier: "Javascript"},{identifier: "HTML"},{identifier: "CSS"}];
-const education_data = [{identifier: "Computer Science"},{identifier: "Financial Economics"}];
-const work_experience_data = [{identifier: "Technical Support Engineer"},{identifier: "College Dining Hall"},{identifier: "Beer Boy"}];
+const project_data = [{project_name: "Climb w Friends"},{project_name: "Jason Art"},{project_name: "Worldle"},{project_name: "Twilio Prefix Map"}];
+const hobby_data = [{hobby_name: "Rock Climbing"},{hobby_name: "Dancing"},{hobby_name: "Running"},{hobby_name: "Video Games"}];
+const tech_stack_data = [{tech_name: "Python"},{tech_name: "Javascript"},{tech_name: "HTML"},{tech_name: "CSS"}];
+const education_data = [{education_name: "Computer Science",degree:'Minor'},{education_name: "Financial Economics",degree:'Bachelors'}];
+const work_experience_data = [{job_title: "Technical Support Engineer"},{job_title: "College Dining Hall"},{job_title: "Beer Boy"}];
 
 // List function for accessing data from micahData
 const list = (resource, name = null) => {
@@ -34,7 +34,17 @@ const micah = {
 
 // parseArray function that uses micah object to list data based on input
 const parseArray = (queryArray) => {
+    if(queryArray[0] ==='micah'){
+    try{
     return (micah[queryArray[1]].list()); // Pass the identifier as the 3rd element in queryArray
+    }
+    catch{
+        return [{error:'Yeah that resource does not exist. Micah is working still working on aquiring more personality depth.'}]
+    }
+}
+else{
+    return [{error:'You spell micah m-i-c-a-h'}]
+}
 };
 
 // Export parseArray function to make it available for import in other files

@@ -103,6 +103,27 @@ const handleStop = (e, data) => {
 
   }
 
+  const formatJSON = (jsonObj) => {
+    // Stringify the object with indentation
+    const jsonString = JSON.stringify(jsonObj, null, 2);
+  
+    // First, style the keys (before the colon)
+    const formattedKeysJSON = jsonString.replace(/"([^"]+)":/g, (match, p1) => {
+      return `<span class="text-green-800 font-termina font-bold">"${p1}":</span>`;
+    });
+  
+    // Second, style the values (string values after the closing span tag)
+    const formattedJSON = formattedKeysJSON.replace(/<\/span>(\s*"[^"]*")/g, (match, p1) => {
+      return `</span><span class="text-slate-300 font-termina font-semibold text-xs">${p1}</span>`;
+    });
+  
+    return formattedJSON;
+  };
+  
+  
+  
+  
+
 return(
     <>
        <div className = 'p-12 bg-zinc-900'> </div>
@@ -140,8 +161,12 @@ return(
             <div className = 'flex h-screen w-full'>
            <div className = 'overflow-scroll mt-10 mb-25 ml-10 w-[80%] bg-zinc-800 rounded-lg'>
 
-
-           <pre className = 'text-blue-500 font-bold'>{terminalDisplay?JSON.stringify(terminalDisplay, null, 2):null}</pre>
+           <pre
+      className="font-mono"
+      dangerouslySetInnerHTML={{
+        __html: terminalDisplay ? formatJSON(terminalDisplay) : '',
+      }}
+    />
            </div>
            <div ref={ref} className = ' min-w-20 ml-5 mt-10 mb-25 rounded-lg border-zinc-500 max-h-fit border-2 grow'> 
            {queryItems.map((item)=>
