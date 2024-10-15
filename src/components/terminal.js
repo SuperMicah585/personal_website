@@ -1,5 +1,6 @@
 import React,{useState,useEffect,forwardRef} from 'react'
 import Draggable from 'react-draggable';
+import {parseArray} from './functions/process_query'
 
 const Terminal = forwardRef((_, ref) => {
 
@@ -8,6 +9,7 @@ const Terminal = forwardRef((_, ref) => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [originalPosition] = useState({ x: 0, y: 0 }); // Store the original position
     const [isInputHovered,setIsInputHovered] = useState(false)
+    const [terminalDisplay,setTerminalDisplay] = useState(null)
     //const[highlightedText, setHighlightedText] = useState('')
 
 
@@ -32,9 +34,9 @@ const Terminal = forwardRef((_, ref) => {
 
 
 const queryItems = [
-    {text:'Projects',endpoint:'client.micah.projects.list()'},{text:'Hobbies',endpoint:'client.micah.hobbies.list()'},
-    {text:'Tech Stack',endpoint:'client.micah.tech_stack.list()'}, {text:'Education',endpoint:'client.micah.education.list()'},
-    {text:'Work Experience',endpoint:'client.micah.work_experience.list()'}
+    {text:'Projects',endpoint:'micah.projects.list()'},{text:'Hobbies',endpoint:'micah.hobbies.list()'},
+    {text:'Tech Stack',endpoint:'micah.tech_stack.list()'}, {text:'Education',endpoint:'micah.education.list()'},
+    {text:'Work Experience',endpoint:'micah.work_experience.list()'}
 
 
 ]
@@ -94,9 +96,10 @@ const handleStop = (e, data) => {
 
   const handleSubmitClick = ()=>{
 
-    const inputElement = document.getElementById('inputField')
-    const value = inputElement.getAttribute('value')
-    console.log(value)
+   
+    const micahsDataObject = parseArray(splitOnPeriodArray)
+    console.log(micahsDataObject,'hi')
+    setTerminalDisplay(micahsDataObject)
 
   }
 
@@ -135,7 +138,11 @@ return(
 
             </div>
             <div className = 'flex h-screen w-full'>
-           <div className = 'overflow-scroll mt-10 mb-25 ml-10 w-[80%] bg-zinc-800 rounded-lg'></div>
+           <div className = 'overflow-scroll mt-10 mb-25 ml-10 w-[80%] bg-zinc-800 rounded-lg'>
+
+
+           <pre className = 'text-blue-500 font-bold'>{terminalDisplay?JSON.stringify(terminalDisplay, null, 2):null}</pre>
+           </div>
            <div ref={ref} className = ' min-w-20 ml-5 mt-10 mb-25 rounded-lg border-zinc-500 max-h-fit border-2 grow'> 
            {queryItems.map((item)=>
            <>
