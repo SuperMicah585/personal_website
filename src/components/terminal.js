@@ -126,7 +126,7 @@ return(
                 id='inputField'
                 type="text" 
                 placeholder="Type or Drag Your Query"
-                className={`w-full border-4 ${isInputHovered ? 'border-blue-500' : 'border-transparent'} h-full text-transparent font-bold h-8 bg-zinc-800 font-termina p-2 rounded-lg caret-blue-500`}
+                className={`w-full border-4 ${isInputHovered ? 'border-blue-500' : 'border-transparent'} h-full text-transparent font-semibold h-8 bg-zinc-800 font-termina p-1 rounded-lg caret-blue-500`}
                 value={inputValue}
                 onChange={handleChange}
             />
