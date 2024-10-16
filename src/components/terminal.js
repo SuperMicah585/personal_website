@@ -69,7 +69,7 @@ const queryItems = [
     {text:'Work Experience',endpoint:'micah.work_experience.list()',type:'parent'},
     {text:'Technical Support Engineer',endpoint:'micah.work_experience.fetch("Technical Support Engineer")',type:'child'},
     {text:"College Dining Hall",endpoint:'micah.work_experience.fetch("College Dining Hall")',type:'child'},
-    {text:'Beer Boy"',endpoint:'micah.work_experience.fetch("Beer Boy"")',type:'child'}
+    {text:'Beer Boy',endpoint:'micah.work_experience.fetch("Beer Boy"")',type:'child'}
 
 
 ]
@@ -164,8 +164,8 @@ return(
         <div className = 'flex relative flex-col h-content bg-zinc-900 p-10'>
             <div className = 'absolute text-opacity-75 font-semibold ml-10 top-0 text-yellow-300 z-25 text-6xl font-termina'>ABOUT ME</div>
 
-            <div className = 'mt-16 ml-10 w-[80%] h-10'>
-            <div className="absolute font-termina pl-2 py-2 rounded-lg pointer-events-none">
+            <div className = 'w-full flex mt-16 ml-10 h-10'>
+            <div className="absolute font-termina pl-2 py-1.5 rounded-lg pointer-events-none">
             {splitOnPeriodArray.map((item,index)=>
             
             (index>0? <><span className  = 'font-termina text-white'>.</span><span className = {tailwindColors[index]}>{item}</span></>:
@@ -177,8 +177,8 @@ return(
             )}
             
             </div>
-
-            <div className = 'flex justify-center items-center gap-5'>
+          
+            <div className = 'flex w-[80%] gap-5'>
             <input
                 spellcheck="false"
                 id='inputField'
@@ -190,9 +190,13 @@ return(
             />
             <div onClick={handleSubmitClick} className='flex items-center font-semibold cursor-pointer text-blue-500 
             border-blue-500 opacity-75 hover:opacity-100 border-2 justify-center p-1  rounded-lg'>submit</div>
+     
+            
+            </div>
+            <div className = 'min-w-60 ml-20'></div>
             </div>
 
-            </div>
+
             <div className = 'flex h-screen w-full'>
            <div className = 'overflow-scroll mt-10 mb-25 ml-10 w-[80%] bg-zinc-800 rounded-lg'>
 
@@ -203,9 +207,13 @@ return(
       }}
     />
            </div>
-           <div ref={ref} className = 'overflow-y-scroll max-h-96 min-w-20 ml-5 mt-10 mb-25 rounded-lg border-zinc-500 border-2 grow'> 
+
+            <div className = 'flex flex-col items-center gap-5 mt-10 ml-5'>
+           <div className = 'text-4xl font-bold text-yellow-300 font-termina opacity-50'> Query Tiles!</div>
+           <div ref={ref} className = 'overflow-y-scroll max-h-96 min-w-64 rounded-lg border-zinc-500 border-2 grow'> 
            {queryItems.map((item)=>
            <div className = 'h-10 border-b-2 border-zinc-500'>
+        
         <Draggable onDrag={handleDrag} position={{x: position.x,y: dragID ===item.text? position.y- offset.y:position.y} }
             
            //y: dragID ===item.text? position.y- offset:position.y
@@ -226,10 +234,11 @@ return(
             
             
             <div data-value= {item.endpoint} 
-           className={`flex hover:text-blue-500 ${dragID===item.text?'absolute':''} items-center ${item.type==='parent'?'ml-2 text-white':'ml-5 text-slate-400'} font-semibold opacity-75 h-10 w-full cursor-pointer z-50 `}>{item.text}</div></Draggable>
+           className={`hover:text-blue-500 ${dragID===item.text?'absolute':''} p-1.5 text-center ${item.type==='parent'?'ml-2 text-white':'ml-5 text-slate-400'} font-semibold opacity-75 h-10 cursor-pointer z-50 inline-block`}>{item.text}</div></Draggable>
           
            </div>
            )}
+           </div>
            </div>
            </div>
 
