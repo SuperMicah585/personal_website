@@ -27,7 +27,7 @@ const Terminal = forwardRef((_, ref) => {
 
     const tailwindColors = [
 
-        'text-fuchsia-300 font-bold','text-indigo-400 font-bold', 'text-green-200 font-bold','text-cyan-500 font-bold'
+        'text-slate-300 font-bold','text-blue-500 font-bold', 'text-blue-300 font-bold'
 
     ]
 
@@ -143,16 +143,16 @@ const handleStop = (e, data) => {
   
     // First, style the keys (before the colon)
     const formattedKeysJSON = jsonString.replace(/"([^"]+)":/g, (match, p1) => {
-      return `<span class="text-blue-500 font-termina text-lg font-bold">"${p1}":</span>`;
+      return `<span class="text-blue-500 opaity-75 font-termina text-base font-bold">"${p1}":</span>`;
     });
   
     // Second, style the values (string values after the closing span tag)
     const formattedJSON = formattedKeysJSON.replace(/<\/span>(\s*"[^"]*")/g, (match, p1) => {
-      return `</span><span class="text-slate-300 font-termina font-semibold text-sm">${p1}</span>`;
+      return `</span><span class="text-amber-700 opacity-75 font-termina font-semibold text-sm">${p1}</span>`;
     });
 
     const FinalformattedJSON = formattedJSON.replace(/<\/span>(\s*\[[^\]]*\])/g, (match, p1) => {
-        return `</span><span class="text-green-300 font-termina font-semibold text-sm">${p1}</span>`;
+        return `</span><span class="text-green-700 opacity-75 font-termina font-semibold text-sm">${p1}</span>`;
       });
   
     
