@@ -8,7 +8,11 @@ function App() {
   const terminalRef = useRef(null);
   const projectRef = useRef(null)
   const homeRef = useRef(null)
-
+  
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    console.log(scrollY); // Logs the current scroll position each time the user scrolls
+  });
   const scrollElementCallBack = (navString) =>{
 
     setScrollElement(navString)

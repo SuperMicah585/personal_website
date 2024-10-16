@@ -217,7 +217,7 @@ return(
            <div className = 'text-4xl font-bold text-yellow-300 font-termina opacity-50'> Query Tiles!</div>
            <div ref={ref} className = 'overflow-y-scroll max-h-96 min-w-64 rounded-lg border-zinc-500 border-2 grow'> 
            {queryItems.map((item)=>
-           <div className = 'h-10 border-b-2 border-zinc-500'>
+           <div className = 'h-10 hover:shadow-slate-500 shadow-sm border-b-2 border-zinc-500'>
         
         <Draggable onDrag={handleDrag} position={{x: position.x,y: dragID ===item.text? position.y- offset.y:position.y} }
             
