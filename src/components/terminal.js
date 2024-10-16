@@ -55,10 +55,10 @@ const queryItems = [
 
 
     {text:'Tech Stack',endpoint:'micah.tech_stack.list()',type:'parent'}, 
-    {text:'Python',endpoint:'micah.tech_stack.fetch("Python")',type:'child'},
-    {text:'Javascript',endpoint:'micah.tech_stack.fetch("Javascript")',type:'child'},
-    {text:'HTML',endpoint:'micah.tech_stack.fetch("HTML")',type:'child'},
-    {text:'CSS',endpoint:'micah.tech_stack.fetch("CSS")',type:'child'},
+    {text:'Languages',endpoint:'micah.tech_stack.fetch("Languages")',type:'child'},
+    {text:'Frameworks',endpoint:'micah.tech_stack.fetch("Frameworks")',type:'child'},
+    {text:'Libraries',endpoint:'micah.tech_stack.fetch("Libraries")',type:'child'},
+
 
     
     
