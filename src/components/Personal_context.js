@@ -19,39 +19,6 @@ const textArray = [
 '',"I'M",'',
 '','','MICAH!']
 
-
-
-
-
-
-
-
-
-
-
-/*
- SDK ideas to expose personal information.
-*******
-Micah:
---
-endpoints:
-
-Coding projects
-params: name
-
-Hobbies
-params: name
-
-Contact
-params: name
-
-
-Example:
-            client.micah.coding_projects.list(
-                name = 'jasonart'
-            )
-*/
-
     return(
         <>
         <GifComponent/>
