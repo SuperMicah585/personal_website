@@ -170,18 +170,39 @@ return(
             <div className = 'absolute text-opacity-75 font-semibold ml-10 top-0 text-yellow-300 z-25 text-6xl font-termina'>ABOUT ME</div>
 
             <div className = 'w-full flex mt-16 ml-10 h-10'>
+
+
+        {/* Styles text that is within the input */}
             <div className="absolute text-xl font-termina pl-2 py-1.5 rounded-lg pointer-events-none">
-            {splitOnPeriodArray.map((item,index)=>
-            
-            (index>0? <><span className  = 'font-termina text-white'>.</span><span className = {tailwindColors[index]}>{item}</span></>:
-            
-            <span className = {tailwindColors[index]}>{item}</span>
+    {splitOnPeriodArray.map((item, index) => {
+        // Regex to match text within double quotes
+        const regex = /"([^"]*)"/g;
+        
+        // Split the item into parts, wrapping quoted text with a span styled red
+        const formattedItem = item.split(regex).map((part, i) => {
+            if (i % 2 === 1) {
+                // This is the part inside quotes
+                return <span key={i} className = 'text-amber-700 opacity-75'>"{part}"</span>;
+            }
+            return part; // Non-quoted text
+        });
+
+        return (
+            index > 0 ? (
+                <>
+                    <span className='font-termina text-white'>.</span>
+                    <span className={tailwindColors[index]}>
+                        {formattedItem}
+                    </span>
+                </>
+            ) : (
+                <span className={tailwindColors[index]}>
+                    {formattedItem}
+                </span>
             )
-            
-            
-            )}
-            
-            </div>
+        );
+    })}
+</div>
           
             <div className = 'flex w-[80%] items-center gap-5'>
             <input
