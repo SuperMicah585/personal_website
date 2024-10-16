@@ -152,7 +152,7 @@ const handleStop = (e, data) => {
     });
 
     const FinalformattedJSON = formattedJSON.replace(/<\/span>(\s*\[[^\]]*\])/g, (match, p1) => {
-        return `</span><span class="text-green-800 font-termina font-semibold text-sm">${p1}</span>`;
+        return `</span><span class="text-green-300 font-termina font-semibold text-sm">${p1}</span>`;
       });
   
     
