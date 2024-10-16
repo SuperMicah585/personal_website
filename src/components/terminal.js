@@ -148,7 +148,7 @@ const handleStop = (e, data) => {
   
     // Second, style the values (string values after the closing span tag)
     const formattedJSON = formattedKeysJSON.replace(/<\/span>(\s*"[^"]*")/g, (match, p1) => {
-      return `</span><span class="text-slate-300 font-termina font-semibold">${p1}</span>`;
+      return `</span><span class="text-slate-300 font-termina text-sm">${p1}</span>`;
     });
   
     
@@ -202,7 +202,7 @@ return(
            <div className = 'overflow-scroll mt-10 mb-25 ml-10 w-[80%] bg-zinc-800 rounded-lg'>
 
            <pre
-      className="ml-5 mt-5 font-termina"
+      className="ml-5 mt-5 font-termina text-sm"
       dangerouslySetInnerHTML={{
         __html: terminalDisplay ? formatJSON(terminalDisplay) : '',
       }}
