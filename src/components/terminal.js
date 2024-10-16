@@ -203,9 +203,9 @@ return(
       }}
     />
            </div>
-           <div ref={ref} className = ' overflow-y-scroll max-h-96 min-w-20 ml-5 mt-10 mb-25 rounded-lg border-zinc-500 max-h-fit border-2 grow'> 
+           <div ref={ref} className = 'overflow-y-scroll max-h-96 min-w-20 ml-5 mt-10 mb-25 rounded-lg border-zinc-500 border-2 grow'> 
            {queryItems.map((item)=>
-           <>
+           <div className = 'h-10 border-b-2 border-zinc-500'>
         <Draggable onDrag={handleDrag} position={{x: position.x,y: dragID ===item.text? position.y- offset.y:position.y} }
             
            //y: dragID ===item.text? position.y- offset:position.y
@@ -227,8 +227,8 @@ return(
             
             <div data-value= {item.endpoint} 
            className={`flex hover:text-blue-500 ${dragID===item.text?'absolute':''} items-center ${item.type==='parent'?'ml-2 text-white':'ml-5 text-slate-400'} font-semibold opacity-75 h-10 w-full cursor-pointer z-50 `}>{item.text}</div></Draggable>
-           <div className = {`${dragID===item.text?'':'border-b-2'} border-slate-500`}> </div>
-           </>
+          
+           </div>
            )}
            </div>
            </div>
