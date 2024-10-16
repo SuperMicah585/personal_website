@@ -4,7 +4,7 @@ import {parseArray} from './functions/process_query'
 
 
 const Terminal = forwardRef((_, ref) => {
-  
+    
     const [inputValue, setInputValue] = useState('');
     const [splitOnPeriodArray,setSplitOnPeriodArray] = useState([])
     const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -15,7 +15,7 @@ const Terminal = forwardRef((_, ref) => {
     const [dragID,setDragID] = useState('')
     const [offset, setOffset] = useState({ x: 0, y: 0 });
     //const[highlightedText, setHighlightedText] = useState('')
-    
+
  
     const handleChange = (e) => {
  
@@ -239,7 +239,9 @@ return(
             
             
             <div data-value= {item.endpoint} 
-           className={`hover:text-blue-500 ${dragID===item.text?'absolute':''} p-1.5 text-center ${item.type==='parent'?'ml-2 text-white':'ml-5 text-slate-400'} font-semibold opacity-75 h-10 cursor-pointer z-50 inline-block`}>{item.text}</div></Draggable>
+           className={`hover:text-blue-500 ${dragID===item.text?'absolute':''} 
+           p-1.5 text-center ${item.type==='parent'?'ml-2 text-white':'ml-5 text-slate-400'} 
+           font-semibold opacity-75 h-10 ${isDragging?'cursor-grabbing':'cursor-pointer'} z-50 inline-block`}>{item.text}</div></Draggable>
           
            </div>
            )}
