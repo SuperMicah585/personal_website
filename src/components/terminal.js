@@ -1,18 +1,22 @@
-import React,{useState,useEffect,forwardRef} from 'react'
+import React,{useState,useEffect,forwardRef,useRef} from 'react'
 import Draggable from 'react-draggable';
 import {parseArray} from './functions/process_query'
 
-const Terminal = forwardRef((_, ref) => {
 
+const Terminal = forwardRef((_, ref) => {
+  
     const [inputValue, setInputValue] = useState('');
     const [splitOnPeriodArray,setSplitOnPeriodArray] = useState([])
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [originalPosition] = useState({ x: 0, y: 0 }); // Store the original position
     const [isInputHovered,setIsInputHovered] = useState(false)
     const [terminalDisplay,setTerminalDisplay] = useState(null)
+    const [isDragging,setIsDragging] = useState(false)
+    const [dragID,setDragID] = useState('')
+    const [offset, setOffset] = useState({ x: 0, y: 0 });
     //const[highlightedText, setHighlightedText] = useState('')
-
-
+    
+ 
     const handleChange = (e) => {
  
       
@@ -33,10 +37,39 @@ const Terminal = forwardRef((_, ref) => {
     },[inputValue])
 
 
+
+
+
 const queryItems = [
-    {text:'Projects',endpoint:'micah.projects.list()'},{text:'Hobbies',endpoint:'micah.hobbies.list()'},
-    {text:'Tech Stack',endpoint:'micah.tech_stack.list()'}, {text:'Education',endpoint:'micah.education.list()'},
-    {text:'Work Experience',endpoint:'micah.work_experience.list()'}
+    {text:'Projects',endpoint:'micah.projects.list()',type:'parent'},
+    {text:'Climb w Friends',endpoint:"micah.projects.fetch('Climb w Friends')",type:'child'},
+    {text:'Jason Art',endpoint:"micah.projects.fetch('Jason Art')",type:'child'},
+    {text:'Twilio Prefix Map',endpoint:"micah.projects.fetch('Twilio Prefix Map')",type:'child'},
+    {text:'Worldle',endpoint:"micah.projects.fetch('Worldle')",type:'child'},
+    
+    {text:'Hobbies',endpoint:'micah.hobbies.list()',type:'parent'},
+    {text:'Rock Climbing',endpoint:'micah.hobbies.fetch("Rock Climbing")',type:'child'},
+    {text:'Dancing',endpoint:'micah.hobbies.fetch("Dancing")',type:'child'},
+    {text:'Running',endpoint:'micah.hobbies.fetch("Running")',type:'child'},
+    {text:'Video Games',endpoint:'micah.hobbies.fetch("Video Games")',type:'child'},
+
+
+    {text:'Tech Stack',endpoint:'micah.tech_stack.list()',type:'parent'}, 
+    {text:'Python',endpoint:'micah.tech_stack.fetch("Python")',type:'child'},
+    {text:'Javascript',endpoint:'micah.tech_stack.fetch("Javascript")',type:'child'},
+    {text:'HTML',endpoint:'micah.tech_stack.fetch("HTML")',type:'child'},
+    {text:'CSS',endpoint:'micah.tech_stack.fetch("CSS")',type:'child'},
+
+    
+    
+    {text:'Education',endpoint:'micah.education.list()',type:'parent'},
+    {text:'Financial Economics',endpoint:'micah.education.fetch("Financial Economics")',type:'child'},
+    {text:'Computer Science',endpoint:'micah.education.fetch("Computer Science")',type:'child'},
+
+    {text:'Work Experience',endpoint:'micah.work_experience.list()',type:'parent'},
+    {text:'Technical Support Engineer',endpoint:'micah.work_experience.fetch("Technical Support Engineer")',type:'child'},
+    {text:"College Dining Hall",endpoint:'micah.work_experience.fetch("College Dining Hall")',type:'child'},
+    {text:'Beer Boy"',endpoint:'micah.work_experience.fetch("Beer Boy"")',type:'child'}
 
 
 ]
@@ -64,13 +97,15 @@ const handleStop = (e, data) => {
     }
     setPosition(originalPosition);
     setIsInputHovered(false)
+    setIsDragging(false)
+    setDragID('')
   }
 
 
   const handleDrag = (e, data) => {
+   
     const inputElement = document.getElementById('inputField');
     const inputRect = inputElement.getBoundingClientRect();
-
     // Use e.target to refer to the dragged element
     const draggedElement = e.target;
    
@@ -127,7 +162,7 @@ return(
     <>
        <div className = 'p-12 bg-zinc-900'> </div>
         <div className = 'flex relative flex-col h-content bg-zinc-900 p-10'>
-            <div className = 'absolute text-opacity-75 font-semibold ml-10 top-0 text-yellow-300 z-50 text-6xl font-termina'>ABOUT ME</div>
+            <div className = 'absolute text-opacity-75 font-semibold ml-10 top-0 text-yellow-300 z-25 text-6xl font-termina'>ABOUT ME</div>
 
             <div className = 'mt-16 ml-10 w-[80%] h-10'>
             <div className="absolute font-termina pl-2 py-2 rounded-lg pointer-events-none">
@@ -153,7 +188,8 @@ return(
                 value={inputValue}
                 onChange={handleChange}
             />
-            <div onClick={handleSubmitClick} className='flex items-center font-semibold cursor-pointer text-blue-500 border-blue-500 border-2 justify-center p-1 hover:bg-blue-500 hover:text-slate-200 rounded-lg'>submit</div>
+            <div onClick={handleSubmitClick} className='flex items-center font-semibold cursor-pointer text-blue-500 
+            border-blue-500 opacity-75 hover:opacity-100 border-2 justify-center p-1  rounded-lg'>submit</div>
             </div>
 
             </div>
@@ -167,11 +203,31 @@ return(
       }}
     />
            </div>
-           <div ref={ref} className = ' min-w-20 ml-5 mt-10 mb-25 rounded-lg border-zinc-500 max-h-fit border-2 grow'> 
+           <div ref={ref} className = ' overflow-y-scroll max-h-96 min-w-20 ml-5 mt-10 mb-25 rounded-lg border-zinc-500 max-h-fit border-2 grow'> 
            {queryItems.map((item)=>
            <>
-           <Draggable onDrag={handleDrag} position={position} onStop={handleStop}><div data-value= {item.endpoint} className="flex hover:text-blue-500 items-center ml-2 font-semibold opacity-75 h-10 w-full text-white cursor-pointer z-50 ">{item.text}</div></Draggable>
-           <div className = 'border-b-2 border-slate-500'> </div>
+        <Draggable onDrag={handleDrag} position={{x: position.x,y: dragID ===item.text? position.y- offset.y:position.y} }
+            
+           //y: dragID ===item.text? position.y- offset:position.y
+           
+           onStart={(e) => {
+            const scrollOffset = ref.current
+              ? ref.current.scrollTop
+              : 0; // Get the scroll offset of the container
+              
+            setOffset({ x: 0, y: scrollOffset });
+            setIsDragging(true);
+            setDragID(e.target.innerHTML);
+          }}
+           
+           
+           
+           onStop={handleStop}>
+            
+            
+            <div data-value= {item.endpoint} 
+           className={`flex hover:text-blue-500 ${dragID===item.text?'absolute':''} items-center ${item.type==='parent'?'ml-2 text-white':'ml-5 text-slate-400'} font-semibold opacity-75 h-10 w-full cursor-pointer z-50 `}>{item.text}</div></Draggable>
+           <div className = {`${dragID===item.text?'':'border-b-2'} border-slate-500`}> </div>
            </>
            )}
            </div>

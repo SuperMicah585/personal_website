@@ -21,7 +21,7 @@ scrollElementCallBack(e.target.innerText)
     
         <div className = 'flex fixed right-5 z-50 gap-5'>
         {items.map((header)=>
-        <div onClick = {(e) => handleClick(e)} className='text-yellow-300 font-semibold text-opacity-75 hover:text-opacity-100 hover:cursor-pointer'>
+        <div onClick = {(e) => handleClick(e)} className='text-yellow-300 font-bold text-opacity-75 hover:text-opacity-100 hover:cursor-pointer'>
             {header}
         </div>
         )
