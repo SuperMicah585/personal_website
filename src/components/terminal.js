@@ -143,16 +143,20 @@ const handleStop = (e, data) => {
   
     // First, style the keys (before the colon)
     const formattedKeysJSON = jsonString.replace(/"([^"]+)":/g, (match, p1) => {
-      return `<span class="text-blue-500 font-termina font-bold">"${p1}":</span>`;
+      return `<span class="text-blue-500 font-termina text-lg font-bold">"${p1}":</span>`;
     });
   
     // Second, style the values (string values after the closing span tag)
     const formattedJSON = formattedKeysJSON.replace(/<\/span>(\s*"[^"]*")/g, (match, p1) => {
-      return `</span><span class="text-slate-300 font-termina text-sm">${p1}</span>`;
+      return `</span><span class="text-slate-300 font-termina font-semibold text-sm">${p1}</span>`;
     });
+
+    const FinalformattedJSON = formattedJSON.replace(/<\/span>(\s*\[[^\]]*\])/g, (match, p1) => {
+        return `</span><span class="text-green-800 font-termina font-semibold text-sm">${p1}</span>`;
+      });
   
     
-    return formattedJSON;
+    return FinalformattedJSON;
   };
   
   
@@ -166,7 +170,7 @@ return(
             <div className = 'absolute text-opacity-75 font-semibold ml-10 top-0 text-yellow-300 z-25 text-6xl font-termina'>ABOUT ME</div>
 
             <div className = 'w-full flex mt-16 ml-10 h-10'>
-            <div className="absolute font-termina pl-2 py-1.5 rounded-lg pointer-events-none">
+            <div className="absolute text-xl font-termina pl-2 py-1.5 rounded-lg pointer-events-none">
             {splitOnPeriodArray.map((item,index)=>
             
             (index>0? <><span className  = 'font-termina text-white'>.</span><span className = {tailwindColors[index]}>{item}</span></>:
@@ -179,18 +183,18 @@ return(
             
             </div>
           
-            <div className = 'flex w-[80%] gap-5'>
+            <div className = 'flex w-[80%] items-center gap-5'>
             <input
                 spellcheck="false"
                 id='inputField'
                 type="text" 
                 placeholder="Type or Drag Your Query"
-                className={`w-full border-4 ${isInputHovered ? 'border-blue-500' : 'border-transparent'} h-full text-transparent font-semibold h-8 bg-zinc-800 font-termina p-1 rounded-lg caret-blue-500`}
+                className={`w-full border-4 ${isInputHovered ? 'border-blue-500' : 'border-transparent'} h-12 text-xl text-transparent font-semibold h-8 bg-zinc-800 font-termina p-1 rounded-lg caret-blue-500`}
                 value={inputValue}
                 onChange={handleChange}
             />
-            <div onClick={handleSubmitClick} className='flex items-center font-semibold cursor-pointer text-blue-500 
-            border-blue-500 opacity-75 hover:opacity-100 border-2 justify-center p-1  rounded-lg'>submit</div>
+            <div onClick={handleSubmitClick} className='h-16 w-20 flex items-center font-semibold cursor-pointer text-blue-500 
+            border-blue-500 opacity-75 hover:opacity-100 border-4 justify-center p-1  rounded-lg'>submit</div>
      
             
             </div>
