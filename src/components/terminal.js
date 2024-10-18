@@ -65,7 +65,7 @@ return(
 
 
             <div className = 'flex relative h-screen w-full'>
-
+            
             <LoadingBarAndTextDisplay loadingState = {loadingState} terminalDisplay={terminalDisplay} isLoading = {isLoading}/>
         
             <div className = 'flex flex-col items-center gap-5 mt-10'>
