@@ -70,11 +70,13 @@ return(
     <>
 
         <div className = {`flex relative flex-col h-content w-screen bg-zinc-900 p-10 box-border`}>
+          {windowWidth>650?
             <div className = ' w-full flex max-[650px]:justify-center text-opacity-75 font-semibold top-0 text-yellow-300 z-25 text-6xl font-termina'>
               <div className = ' flex'>  
               ABOUT ME
               </div> 
-              </div>
+              </div>:null}
+
 
           <InputAndSubmit windowWidth = {windowWidth} dragTriggerValue = {dragTriggerValue} dragInputValue={dragInputValue} isloadingCallBack = {isloadingCallBack} 
           loadingValueCallBack = {loadingValueCallBack} terminalTextCallBack = {terminalTextCallBack} isInputHovered = {isInputHovered}/>
@@ -96,7 +98,7 @@ return(
           <div className = 'flex flex-col relative h-content w-full'> 
 
             <div className = 'flex flex-col items-center gap-5 mt-10'>
-           <div className = 'text-4xl font-bold text-yellow-300 font-termina opacity-50'> Query Tiles!</div>
+         
         
            <QueryTiles windowWidth = {windowWidth} setDragInputValueCallBack = {setDragInputValueCallBack} setDragTriggerValueCallBack = {setDragTriggerValueCallBack}
            setIsInputHoveredCallBack = {setIsInputHoveredCallBack} dragTriggerValue = {dragTriggerValue} ref = {ref}/>

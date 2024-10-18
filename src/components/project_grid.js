@@ -6,6 +6,23 @@ import twiliomap from './project_images/twiliomap.jpg';
 import worldle from './project_images/worldle.jpg';
 
 const ProjectGrid = forwardRef((_, ref) => {
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth); 
+
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth); // Update the window width state when the window is resized
+  };
+
+  // Add the resize event listener when the component mounts
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const images = [
     { url: 'https://climbwfriends-production.up.railway.app/demo/', github:'https://github.com/SuperMicah585/ClimbWFriends', name: 'Climb w Friends', image: climbingmap },
     { url: 'https://jasonwadephelps-art-production.up.railway.app/', github: 'https://github.com/SuperMicah585/JasonWadePhelps-Art', name: 'Jason Art', image: jasonart },
@@ -37,11 +54,12 @@ const ProjectGrid = forwardRef((_, ref) => {
 
  return (
 <div ref = {ref} className=" p-10 box-border h-content w-screen bg-zinc-900">
+  {windowWidth>650?
     <div className = ' mt-10 w-full flex max-[650px]:justify-center text-opacity-75 font-semibold top-0 text-yellow-300 z-25 text-6xl font-termina'>
               <div className = ' flex'>  
               PROJECTS
               </div> 
-      </div>
+      </div>:null}
     
     <div className = 'mt-20 grid grid-cols-1 lg:grid-cols-2 gap-5'>    
       {/* Loop over images array */}
