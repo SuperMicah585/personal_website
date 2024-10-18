@@ -55,13 +55,13 @@ const ProjectGrid = forwardRef((_, ref) => {
  return (
 <div ref = {ref} className=" p-10 box-border h-content w-screen bg-zinc-900">
   {windowWidth>650?
-    <div className = ' mt-10 w-full flex max-[650px]:justify-center text-opacity-75 font-semibold top-0 text-yellow-300 z-25 text-6xl font-termina'>
+    <div className = 'mt-10 w-full flex max-[650px]:justify-center text-opacity-75 font-semibold top-0 text-yellow-300 z-25 text-6xl font-termina'>
               <div className = ' flex'>  
               PROJECTS
               </div> 
       </div>:null}
     
-    <div className = 'mt-20 grid grid-cols-1 lg:grid-cols-2 gap-5'>    
+    <div className = {`${windowWidth>650?'mt-20':''} grid grid-cols-1 lg:grid-cols-2 gap-5`}>    
       {/* Loop over images array */}
       {images.map((imageObj, index) => (
         <div className="relative object-contain" key={index}>
