@@ -1,6 +1,6 @@
 
 
-const LoadingBarAndTextDisplay = ({loadingState,terminalDisplay,isLoading}) =>{
+const LoadingBarAndTextDisplay = ({windowWidth, loadingState,terminalDisplay,isLoading}) =>{
 
     const formatJSON = (jsonObj) => {
         // Stringify the object with indentation
@@ -26,7 +26,7 @@ const LoadingBarAndTextDisplay = ({loadingState,terminalDisplay,isLoading}) =>{
 
 return(
 
-    <div className = 'overflow-scroll relative mt-10 mb-25 w-[90%] bg-zinc-800 rounded-lg'>
+    <div className = {`overflow-scroll ${windowWidth<651?'min-h-96':''} relative mt-10 mb-25 w-[90%] bg-zinc-800 rounded-lg`}>
     {loadingState==='0%'?null:
     <div class="w-full absolute bg-gray-200 rounded-full dark:bg-gray-700">
 <div class="bg-blue-500 opacity-75 text-xs font-bold text-blue-100 text-center p-0.5 leading-none rounded-full transition-all duration-1000" style={{width: loadingState}}>{loadingState}</div>
@@ -41,5 +41,6 @@ dangerouslySetInnerHTML={{
 />
 }
     </div>
+
 )
 }; export default LoadingBarAndTextDisplay;

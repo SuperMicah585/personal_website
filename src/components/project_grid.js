@@ -37,7 +37,7 @@ const ProjectGrid = forwardRef((_, ref) => {
 
  return (
 <div ref = {ref} className=" p-10 box-border h-content w-screen bg-zinc-900">
-    <div className = ' mt-10 w-full flex max-[1024px]:justify-center text-opacity-75 font-semibold top-0 text-yellow-300 z-25 text-6xl font-termina'>
+    <div className = ' mt-10 w-full flex max-[650px]:justify-center text-opacity-75 font-semibold top-0 text-yellow-300 z-25 text-6xl font-termina'>
               <div className = ' flex'>  
               PROJECTS
               </div> 

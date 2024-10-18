@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useRef} from 'react'
 import {parseArray} from '../functions/process_query'
-const InputAndSubmit = ({dragTriggerValue,dragInputValue,isloadingCallBack,loadingValueCallBack,terminalTextCallBack,isInputHovered}) => {
+const InputAndSubmit = ({windowWidth,dragTriggerValue,dragInputValue,isloadingCallBack,loadingValueCallBack,terminalTextCallBack,isInputHovered}) => {
     const [inputValue, setInputValue] = useState('');
     const [splitOnPeriodArray,setSplitOnPeriodArray] = useState([])
     const [isDisabled,setIsDisabled] = useState(false)
@@ -100,12 +100,13 @@ const InputAndSubmit = ({dragTriggerValue,dragInputValue,isloadingCallBack,loadi
 
 return(
  
-    <div className = 'flex relative w-full mt-16 h-10 '>
+    <div className={`flex ${windowWidth < 651 ? 'justify-center' : ''} relative w-full mt-16 h-10`}>
 
-
+    
     {/* Styles text that is within the input */}
  
-    <div ref={scrollableDivRef} className="absolute min-w-40 text-xl whitespace-nowrap overflow-x-scroll overflow-y-hidden w-[calc(100%-410px)] h-12 font-termina pl-2 py-1.5 rounded-lg pointer-events-none right-0 left-0">
+    <div ref={scrollableDivRef} className={`absolute min-w-40 text-xl whitespace-nowrap overflow-x-scroll overflow-y-hidden 
+    ${windowWidth < 651 ?'w-[calc(100%-108px)]':'w-[calc(100%-365px)]'}  h-12 font-termina pl-2 py-1.5 rounded-lg pointer-events-none right-0 left-0`}>
 
 
 {splitOnPeriodArray.map((item, index) => {
@@ -138,7 +139,7 @@ return(
 })}
 </div>
     
-        <div className = 'flex w-[100%] items-center gap-10'>
+        <div className = 'flex w-[100%] items-center'>
         <input
             ref={inputScrollRef}
             spellcheck="false"
@@ -149,10 +150,10 @@ return(
             value={inputValue}
             onChange={handleChange}
         />
-        <div onClick={isDisabled?null:handleSubmitClick} className='h-16 w-20 flex items-center font-semibold cursor-pointer text-blue-500 
+        <div onClick={isDisabled?null:handleSubmitClick} className='h-16 ml-10 w-20 flex items-center font-semibold cursor-pointer text-blue-500 
         border-blue-500 opacity-75 hover:opacity-100 border-4 justify-center p-1  rounded-lg'>submit</div>
  
-        <div className='min-w-64'>
+        <div className={`${windowWidth < 651 ? 'w-0' : 'min-w-64'}`}>
 
 
         </div>

@@ -1,7 +1,7 @@
 import React,{useState,useEffect,forwardRef} from 'react'
 import Draggable from 'react-draggable';
 import {queryItems} from './micah_data'
-const QueryTiles = forwardRef(({setDragInputValueCallBack,setDragTriggerValueCallBack,setIsInputHoveredCallBack,dragTriggerValue},ref) =>{
+const QueryTiles = forwardRef(({windowWidth,setDragInputValueCallBack,setDragTriggerValueCallBack,setIsInputHoveredCallBack,dragTriggerValue},ref) =>{
 
     const [offset, setOffset] = useState({ x: 0, y: 0 });
     const [isDragging,setIsDragging] = useState(false)
@@ -69,7 +69,7 @@ const QueryTiles = forwardRef(({setDragInputValueCallBack,setDragTriggerValueCal
 
     return(
 
-        <div ref={ref} className = 'ml-10 overflow-y-scroll max-h-96 min-w-64 rounded-lg border-zinc-500 border-2'> 
+        <div ref={ref} className = {`overflow-y-scroll ${windowWidth>650?'ml-10 max-h-96':'max-h-40'} min-w-64 rounded-lg border-zinc-500 border-2`}> 
         {queryItems.map((item)=>
         <div className = 'h-10 hover:shadow-slate-500 shadow-sm border-b-2 border-zinc-500'>
      

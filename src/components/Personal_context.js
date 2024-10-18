@@ -8,7 +8,7 @@ const Personal_Context = forwardRef((_, ref) =>{
             <img 
               src="https://media.tenor.com/LlbU6ZEXGHsAAAAi/bear-dance.gif" 
               alt="Banana Cheerer"
-              className="h-screen z-50 opacity-25 " // You can customize the size and styling
+              className="h-full w-full object-contain opacity-25 " // You can customize the size and styling
             />
           </div>
         );
