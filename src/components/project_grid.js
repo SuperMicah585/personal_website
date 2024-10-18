@@ -36,11 +36,14 @@ const ProjectGrid = forwardRef((_, ref) => {
  
 
  return (
-  <div ref={ref} className = 'h-content bg-zinc-900'>
-    <div className = 'p-20 bg-zinc-900'> </div>
-   <div className= 'ml-16 p-3 bg-zinc-900 text-yellow-300 text-opacity-75 text-6xl font-termina font-semibold'>PROJECTS  </div>
-    <div className="grid grid-cols-2 ml-10 p-10 gap-5">
+<div ref = {ref} className=" p-10 box-border h-content w-screen bg-zinc-900">
+    <div className = ' mt-10 w-full flex max-[1024px]:justify-center text-opacity-75 font-semibold top-0 text-yellow-300 z-25 text-6xl font-termina'>
+              <div className = ' flex'>  
+              PROJECTS
+              </div> 
+      </div>
     
+    <div className = 'mt-20 grid grid-cols-1 lg:grid-cols-2 gap-5'>    
       {/* Loop over images array */}
       {images.map((imageObj, index) => (
         <div className="relative object-contain" key={index}>
@@ -82,8 +85,9 @@ const ProjectGrid = forwardRef((_, ref) => {
           </motion.div>
         </div>
       ))}
+      </div>
     </div>
-  </div>
+
 );
 
 });

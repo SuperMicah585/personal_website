@@ -52,26 +52,34 @@ const setIsInputHoveredCallBack = (value) =>{
 
 return(
     <>
-       <div className = 'p-12 bg-zinc-900'> </div>
-        <div className = 'flex relative flex-col h-content bg-zinc-900 p-10'>
-            <div className = 'absolute text-opacity-75 font-semibold ml-10 top-0 text-yellow-300 z-25 text-6xl font-termina'>ABOUT ME</div>
+
+        <div className = 'flex relative flex-col h-content w-screen bg-zinc-900 p-10 box-border'>
+            <div className = ' w-full flex max-[1024px]:justify-center text-opacity-75 font-semibold top-0 text-yellow-300 z-25 text-6xl font-termina'>
+              <div className = ' flex'>  
+              ABOUT ME
+              </div> 
+              </div>
 
           <InputAndSubmit dragTriggerValue = {dragTriggerValue} dragInputValue={dragInputValue} isloadingCallBack = {isloadingCallBack} 
           loadingValueCallBack = {loadingValueCallBack} terminalTextCallBack = {terminalTextCallBack} isInputHovered = {isInputHovered}/>
 
 
-            <div className = 'flex h-screen w-full'>
+            <div className = 'flex relative h-screen w-full'>
 
             <LoadingBarAndTextDisplay loadingState = {loadingState} terminalDisplay={terminalDisplay} isLoading = {isLoading}/>
-            <div className = 'flex flex-col items-center gap-5 mt-10 ml-5'>
+        
+            <div className = 'flex flex-col items-center gap-5 mt-10'>
            <div className = 'text-4xl font-bold text-yellow-300 font-termina opacity-50'> Query Tiles!</div>
+        
            <QueryTiles setDragInputValueCallBack = {setDragInputValueCallBack} setDragTriggerValueCallBack = {setDragTriggerValueCallBack}
            setIsInputHoveredCallBack = {setIsInputHoveredCallBack} dragTriggerValue = {dragTriggerValue} ref = {ref}/>
-
+  
+    
            </div>
            </div>
 
         </div>
+   
         </>
     )
 

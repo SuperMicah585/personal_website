@@ -58,7 +58,8 @@ const InputAndSubmit = ({dragTriggerValue,dragInputValue,isloadingCallBack,loadi
 
 
 return(
-    <div className = 'w-full flex mt-16 ml-10 h-10'>
+    <div className = 'w-full'>
+    <div className = 'flex mt-16 h-10'>
 
 
     {/* Styles text that is within the input */}
@@ -93,7 +94,7 @@ return(
 })}
 </div>
       
-        <div className = 'flex w-[80%] items-center gap-5'>
+        <div className = 'flex w-[80%] items-center gap-10'>
         <input
             spellcheck="false"
             id='inputField'
@@ -108,7 +109,8 @@ return(
  
         
         </div>
-        <div className = 'min-w-60 ml-20'></div>
+        <div className = 'min-w-60 ml-14'></div>
+        </div>
         </div>
 
 )
