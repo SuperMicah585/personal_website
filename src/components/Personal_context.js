@@ -29,7 +29,7 @@ const textArray = [
             textArray.map((text)=>
                 text ==='WELCOME' || text ==='TO MY' || text === 'PORTFOLIO'?
                 <div className = 'text-7xl text-blue-500 text-wrap object-fit font-moret overflow-hidden text-ellipsis'>{text}</div>:
-                <div className = 'text-9xl text-blue-500 text-opacity-75 text-wrap object-fit font-moret overflow-hidden text-ellipsis'>{text}</div>
+                <div className = 'text-9xl text-blue-500 font-extrabold text-opacity-75 text-wrap object-fit font-moret overflow-hidden text-ellipsis'>{text}</div>
                 
                 )
 
