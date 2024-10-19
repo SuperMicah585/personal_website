@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 
-const NavBar = ({scrollElementCallBack}) =>{
+const NavBar = ({scrollPosition, terminalPositition, projectPositition, homePositition, scrollElementCallBack}) =>{
+    
+const [currentPosition, setCurrenPosition] = useState('HOME')
 
+const [middleY, setMiddleY] = useState(0);
 const items = [
     'HOME',
     'PROJECTS',
@@ -9,6 +12,47 @@ const items = [
 
 
 ]
+
+
+useEffect(() => {
+    // Function to calculate the middle of the viewport
+    const calculateMiddle = () => {
+      const y = window.innerHeight / 2;
+  
+      setMiddleY(y);
+    };
+
+    // Calculate middle on mount
+    calculateMiddle();
+
+    // Recalculate middle on window resize
+    window.addEventListener('resize', calculateMiddle);
+
+    // Clean up the event listener when the component unmounts
+    return () => window.removeEventListener('resize', calculateMiddle);
+  }, []);
+
+useEffect(()=>{
+    const middleofscreen = middleY + scrollPosition
+    const terminalPosititionScreen = scrollPosition + terminalPositition
+    const projectPosititionScreen = scrollPosition + projectPositition
+    const homePosititionScreen = homePositition + scrollPosition
+
+
+    if(middleofscreen<homePosititionScreen){
+
+        setCurrenPosition('HOME')
+    }
+    else if(middleofscreen<projectPosititionScreen){
+
+        setCurrenPosition('PROJECTS')
+    }
+    else if(middleofscreen<terminalPosititionScreen){
+
+        setCurrenPosition('ABOUT')
+    }
+
+},[scrollPosition,terminalPositition,projectPositition,homePositition])
 
 const handleClick = (e) =>{
 
@@ -20,13 +64,12 @@ scrollElementCallBack(e.target.innerText)
     return(
     
         <div className='fixed flex w-full justify-center sm:justify-end sm:right-5 z-50 gap-5'>
-
+     
         {items.map((header)=>
             <div 
   onClick={(e) => handleClick(e)} 
-  className='relative text-yellow-300 duration-700 font-bold text-opacity-75 hover:text-opacity-100 hover:cursor-pointer 
-  after:content-[""] after:absolute after:left-1/2 after:transform after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 
-  after:bg-yellow-300 after:transition-all after:duration-700 hover:after:w-full'
+  className={`relative text-yellow-300 duration-100 font-bold text-opacity-75 hover:text-opacity-100 hover:cursor-pointer
+    ${header === currentPosition? 'border-b-2 border-yellow-300' : ''}`}
 >
   {header}
 </div>
