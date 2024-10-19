@@ -63,7 +63,7 @@ scrollElementCallBack(e.target.innerText)
 
     return(
     
-        <div className='fixed flex w-full justify-center sm:justify-end sm:right-5 z-50 gap-5'>
+        <div className='fixed mt-1 flex w-full justify-center sm:justify-end sm:right-5 z-50 gap-5'>
      
         {items.map((header)=>
             <div 
