@@ -81,7 +81,7 @@ const ProjectGrid = forwardRef((_, ref) => {
             {/* This div wraps the background and name, but has pointer-events-none to allow hover on background */}
             <div className="absolute inset-0 flex items-center justify-center
              text-black text-opacity-0 group-hover:text-opacity-100 group-hover:bg-opacity-50 group-hover:bg-white pointer-events-none">
-              <div className="text-center font-termina text-7xl font-black cursor-pointer">
+              <div className={`text-center font-termina ${windowWidth<651?'text-5xl':'text-7xl'} font-black cursor-pointer`}>
                 {imageObj.name}
 
                 {/* Container for clickable SVG icons */}
