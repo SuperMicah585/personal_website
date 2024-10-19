@@ -35,38 +35,36 @@ function App() {
 
   const handleScroll = () => {
     setScrollPosition(window.scrollY); // Update the window width state when the window is resized
-  };
-
-  // Add the resize event listener when the component mounts
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    // Cleanup the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-
-  const handleResize = () => {
-  
     setTerminalPosition(terminalRef.current.getBoundingClientRect().bottom)
     setProjectPositition(projectRef.current.getBoundingClientRect().bottom)
     setHomePositition(homeRef.current.getBoundingClientRect().bottom)
   };
 
+
+  const debounce = (func, delay) => {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), delay);
+    };
+  };
+
   // Add the resize event listener when the component mounts
   useEffect(() => {
-    // Initial calculation on mount
-    handleResize();
-    
-    window.addEventListener('scroll', handleResize);
 
-    // Cleanup the event listener when the component unmounts
+    handleScroll();
+
+    const debouncedHandleScroll = debounce(handleScroll, 200); // 200ms delay after scrolling stops
+
+    // Add scroll event listener
+    window.addEventListener("scroll", debouncedHandleScroll);
+
+    // Clean up the event listener when the component unmounts
     return () => {
-        window.removeEventListener('scroll', handleResize);
+      window.removeEventListener("scroll", debouncedHandleScroll);
     };
-}, []);
+  }, []);
+
 
 
   

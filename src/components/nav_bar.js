@@ -47,7 +47,7 @@ useEffect(()=>{
 
         setCurrenPosition('PROJECTS')
     }
-    else if(middleofscreen<terminalPosititionScreen){
+    else{
 
         setCurrenPosition('ABOUT')
     }
