@@ -68,7 +68,7 @@ scrollElementCallBack(e.target.innerText)
         {items.map((header)=>
             <div 
   onClick={(e) => handleClick(e)} 
-  className={`relative text-yellow-300 duration-100 font-bold text-opacity-75 hover:text-opacity-100 hover:cursor-pointer
+  className={`relative text-yellow-300 duration-100 font-bold text-xl text-opacity-75 hover:text-opacity-100 hover:cursor-pointer
     ${header === currentPosition? 'border-b-2 border-yellow-300' : ''}`}
 >
   {header}

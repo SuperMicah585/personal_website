@@ -54,7 +54,7 @@ function App() {
 
     handleScroll();
 
-    const debouncedHandleScroll = debounce(handleScroll, 200); // 200ms delay after scrolling stops
+    const debouncedHandleScroll = debounce(handleScroll, 50); // 200ms delay after scrolling stops
 
     // Add scroll event listener
     window.addEventListener("scroll", debouncedHandleScroll);
