@@ -69,7 +69,7 @@ const setIsInputHoveredCallBack = (value) =>{
 return(
     <>
 
-        <div className = {`flex relative flex-col h-content w-screen bg-zinc-900 p-10 box-border`}>
+        <div className = {`flex relative flex-col h-content w-screen bg-zinc-900 ${windowWidth>650?'p-10':'p-5'} box-border`}>
           {windowWidth>650?
             <div className = ' w-full flex max-[650px]:justify-center text-opacity-75 font-semibold top-0 text-yellow-300 z-25 text-6xl font-termina'>
               <div className = ' flex'>  

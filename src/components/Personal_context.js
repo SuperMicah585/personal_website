@@ -1,6 +1,6 @@
 import React,{forwardRef} from 'react'
 
-const Personal_Context = forwardRef((_, ref) =>{
+const Personal_Context = forwardRef(({windowWidth}, ref) =>{
 
     const GifComponent = () => {
         return (
@@ -22,24 +22,26 @@ const textArray = [
     return(
         <>
         <GifComponent/>
-        <div ref={ref} className = 'absolute top-0 left-0 text-md h-screen w-full grid grid-cols-3 place-items-center p-10'>
-     
-            {
+  
+        <div className = ' absolute h-screen w-content flex items-center justify-center top-0 left-0'>
+        <div ref={ref} className = 'p-10 relative w-screen text-8xl sm:text-9xl font-monet left-0 flex flex-col items-center gap-20 text-blue-300 font-bold opacity-75'>   
 
-            textArray.map((text)=>
-                text ==='WELCOME' || text ==='TO MY' || text === 'PORTFOLIO'?
-                <div className = 'text-7xl text-blue-500 text-wrap object-fit font-moret overflow-hidden text-ellipsis'>{text}</div>:
-                <div className = 'xl:text-9xl lg:text-8xl md:text-7xl sm:text-6xl text-4xl text-blue-500 font-extrabold text-opacity-75 text-wrap object-fit font-moret overflow-hidden text-ellipsis'>{text}</div>
-                
-                )
+            <div className = 'w-full flex justify-center lg:justify-start'> HEY, </div>
 
-            
-            
-            
-            }
+            <div className='w-full flex justify-center' > I'M</div>
 
-                
+            <div className='w-full flex justify-center lg:justify-end' > MICAH! </div>
+
+            </div>
+
+
         </div>
+
+            
+            
+            
+            
+
         </>
     )
 }); export default Personal_Context;

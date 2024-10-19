@@ -145,7 +145,7 @@ return(
             spellcheck="false"
             id='inputField'
             type="text" 
-            placeholder="Type or Drag Your Query"
+            placeholder="Type or Drag"
             className={`w-[calc(100%)] border-4 min-w-40 ${isInputHovered ? 'border-blue-500' : 'border-transparent'} h-12 text-xl text-transparent font-semibold bg-zinc-800 font-termina p-1 rounded-lg caret-blue-500`}
             value={inputValue}
             onChange={handleChange}
