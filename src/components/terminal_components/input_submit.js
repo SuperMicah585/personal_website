@@ -7,13 +7,18 @@ const InputAndSubmit = ({ windowWidth, dragTriggerValue, dragInputValue, isloadi
   const [isDisabled, setIsDisabled] = useState(false);
   const scrollableDivRef = useRef(null);
   const inputScrollRef = useRef(null);
+  const [bgColorChanged, setBgColorChanged] = useState(false);
 
   // Scroll event handler
 
 
   useEffect(() => {
     if (dragTriggerValue > 0) {
+      console.log("insiderino");
       setInputValue(dragInputValue);
+      setBgColorChanged(true);  // Trigger background color change
+      // Optional: Reset the color after a timeout
+      setTimeout(() => setBgColorChanged(false), 1000); // Change back after 1 second
     }
   }, [dragTriggerValue]);
 
@@ -24,6 +29,9 @@ const InputAndSubmit = ({ windowWidth, dragTriggerValue, dragInputValue, isloadi
   const handleChange = (e) => {
     setInputValue(e.target.value);
   };
+
+
+  
 
 
 
@@ -54,17 +62,20 @@ const InputAndSubmit = ({ windowWidth, dragTriggerValue, dragInputValue, isloadi
       </div>
 
       <div className='flex w-[calc(100%)] items-center'>
-        <input
-          ref={inputScrollRef}
-          spellCheck="false"
-          id="inputField"
-          type="text"
-          placeholder="Type or Drag Query"
-          className={`w-[calc(100%)] border-4 min-w-40 ${isInputHovered ? 'border-blue-500' : 'border-transparent'} h-12 text-xl text-slate-400 font-semibold bg-zinc-800 font-termina p-1 rounded-lg caret-blue-500`}
-          value={inputValue}
-          onChange={handleChange}
-         
-        />
+      <input
+  ref={inputScrollRef}
+  spellCheck="false"
+  id="inputField"
+  type="text"
+  placeholder="Type or Drag Query"
+  className={`w-[calc(100%)] border-4 min-w-40 transition-all duration-300 ease-in-out ${
+    isInputHovered ? 'border-blue-500' : 'border-transparent'
+  } h-12 text-xl text-slate-100 font-semibold font-termina p-1 rounded-lg caret-blue-500 ${
+    bgColorChanged ? 'bg-blue-500' : 'bg-zinc-800'
+  }`}
+  value={inputValue}
+  onChange={handleChange}
+/>
         <div onClick={isDisabled ? null : handleSubmitClick} className='h-16 ml-10 w-20 flex items-center font-semibold cursor-pointer text-blue-500 
         border-blue-500 opacity-75 hover:opacity-100 border-4 justify-center p-1  rounded-lg'>submit</div>
 
