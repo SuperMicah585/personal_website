@@ -101,7 +101,7 @@ return(
 
             <div className = 'flex flex-col items-center gap-5 mt-10'>
          
-            <div className='w-full'> <div className = {` text-1xl font-bold text-yellow-300 font-termina opacity-50`}> Draggable Query Tiles!</div> </div>
+            <div className='w-full'> <div className = {` text-1xl font-bold text-yellow-300 font-termina opacity-50`}> Draggable Query Tiles</div> </div>
         
            <QueryTiles windowWidth = {windowWidth} setDragInputValueCallBack = {setDragInputValueCallBack} setDragTriggerValueCallBack = {setDragTriggerValueCallBack}
            setIsInputHoveredCallBack = {setIsInputHoveredCallBack} dragTriggerValue = {dragTriggerValue} ref = {ref}/>

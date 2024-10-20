@@ -26,7 +26,7 @@ const LoadingBarAndTextDisplay = ({windowWidth, loadingState,terminalDisplay,isL
 
 return(
 
-    <div className = {`overflow-scroll ${windowWidth<651?'min-h-96':''} w-full relative mt-5 mb-25 w-[90%] bg-zinc-800 rounded-lg`}>
+    <div className = {`overflow-scroll ${windowWidth<651?'h-96':''} w-full relative mt-5 mb-25 w-[90%] bg-zinc-800 rounded-lg`}>
     {loadingState==='0%'?null:
     
     <div class="w-full absolute bg-gray-200 rounded-full dark:bg-gray-700">
