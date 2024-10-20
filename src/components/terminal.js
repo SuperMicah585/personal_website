@@ -88,7 +88,7 @@ return(
             <LoadingBarAndTextDisplay windowWidth = {windowWidth} loadingState = {loadingState} terminalDisplay={terminalDisplay} isLoading = {isLoading}/>
 
             <div className = 'flex flex-col items-center gap-5 ml-10 mt-10'>
-           <div className = {`text-1xl font-bold text-yellow-300 font-termina opacity-50`}> Draggable Query Tiles!</div>
+           <div className = {`text-1xl font-bold text-yellow-300 font-termina opacity-50`}> Draggable Query Tiles</div>
 
 
            <QueryTiles windowWidth = {windowWidth} setDragInputValueCallBack = {setDragInputValueCallBack} setDragTriggerValueCallBack = {setDragTriggerValueCallBack}
