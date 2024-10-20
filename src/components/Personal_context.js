@@ -24,7 +24,9 @@ const textArray = [
         <GifComponent/>
   
         <div className = ' absolute h-screen w-content flex items-center justify-center top-0 left-0'>
-        <div ref={ref} className = 'p-10 relative w-screen text-8xl sm:text-9xl font-monet left-0 flex flex-col items-center gap-20 text-blue-500 font-black opacity-50'>   
+        <div style={{
+  textShadow: '-1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black'
+}} ref={ref} className = 'p-10 relative w-screen text-8xl sm:text-9xl font-monet left-0 flex flex-col items-center gap-20 text-blue-500 font-black opacity-50'>   
 
             <div className = 'w-full flex justify-center xl:justify-start'> HEY, </div>
 
