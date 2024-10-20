@@ -93,8 +93,8 @@ const QueryTiles = forwardRef(({windowWidth,setDragInputValueCallBack,setDragTri
          
          
          <div data-value= {item.endpoint} 
-        className={`hover:text-blue-500 ${dragID===item.text?'absolute':''} 
-        p-1.5 text-center ${item.type==='parent'?'ml-2 text-white':'ml-5 text-slate-400'} 
+        className={`hover:text-lg hover:opacity-75 ${dragID===item.text?'absolute':''} 
+        p-1.5 text-center ${item.type==='parent'?'ml-2 text-white':'ml-5 text-slate-500'} 
         font-semibold opacity-75 h-10 ${isDragging?'cursor-grabbing':'cursor-pointer'} z-50 inline-block`}>{item.text}</div></Draggable>
        
         </div>
