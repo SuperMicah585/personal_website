@@ -70,12 +70,12 @@ return(
     <>
 
         <div className = {`flex relative flex-col h-content w-screen bg-zinc-900 ${windowWidth>650?'p-10':'p-5'} box-border`}>
-          {windowWidth>650?
-            <div className = ' w-full flex max-[650px]:justify-center text-opacity-75 font-semibold top-0 text-yellow-300 z-25 text-6xl font-termina'>
+
+            <div className = ' w-full flex max-[650px]:justify-center max-[650px]:text-3xl text-opacity-75 font-semibold top-0 text-yellow-300 z-25 text-5xl font-termina'>
               <div className = ' flex'>  
-              ABOUT ME
+              ABOUT
               </div> 
-              </div>:null}
+              </div>
 
 
           <InputAndSubmit windowWidth = {windowWidth} dragTriggerValue = {dragTriggerValue} dragInputValue={dragInputValue} isloadingCallBack = {isloadingCallBack} 
@@ -83,12 +83,14 @@ return(
 
 
             
-            {windowWidth>650? <div className = 'flex relative h-screen w-full'>     
+            {windowWidth>650? <div className = 'flex relative h-screen w-full'>
+             
             <LoadingBarAndTextDisplay windowWidth = {windowWidth} loadingState = {loadingState} terminalDisplay={terminalDisplay} isLoading = {isLoading}/>
-     
-            <div className = 'flex flex-col items-center gap-5 mt-10'>
-           <div className = {`text-4xl font-bold text-yellow-300 font-termina opacity-50`}> Query Tiles!</div>
-        
+
+            <div className = 'flex flex-col items-center gap-5 ml-10 mt-10'>
+           <div className = {`text-1xl font-bold text-yellow-300 font-termina opacity-50`}> Draggable Query Tiles!</div>
+
+
            <QueryTiles windowWidth = {windowWidth} setDragInputValueCallBack = {setDragInputValueCallBack} setDragTriggerValueCallBack = {setDragTriggerValueCallBack}
            setIsInputHoveredCallBack = {setIsInputHoveredCallBack} dragTriggerValue = {dragTriggerValue} ref = {ref}/>:
 
@@ -99,12 +101,13 @@ return(
 
             <div className = 'flex flex-col items-center gap-5 mt-10'>
          
+            <div className='w-full'> <div className = {` text-1xl font-bold text-yellow-300 font-termina opacity-50`}> Draggable Query Tiles!</div> </div>
         
            <QueryTiles windowWidth = {windowWidth} setDragInputValueCallBack = {setDragInputValueCallBack} setDragTriggerValueCallBack = {setDragTriggerValueCallBack}
            setIsInputHoveredCallBack = {setIsInputHoveredCallBack} dragTriggerValue = {dragTriggerValue} ref = {ref}/>
-
+            
           </div>
-          
+          <div className = 'mt-10 text-1xl font-bold text-yellow-300 font-termina text-opacity-50'> Output</div>
           <LoadingBarAndTextDisplay windowWidth= {windowWidth} loadingState = {loadingState} terminalDisplay={terminalDisplay} isLoading = {isLoading}/></div>}
 
            

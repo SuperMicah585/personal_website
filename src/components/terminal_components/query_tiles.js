@@ -69,7 +69,7 @@ const QueryTiles = forwardRef(({windowWidth,setDragInputValueCallBack,setDragTri
 
     return(
 
-        <div ref={ref} className = {`overflow-y-scroll ${windowWidth>650?'ml-10 max-h-96 min-w-64':'max-h-40 w-full'} rounded-lg border-zinc-500 border-2`}> 
+        <div ref={ref} className = {`overflow-y-scroll ${windowWidth>650?' max-h-96 min-w-64':'max-h-40 w-full'} rounded-lg border-zinc-500 border-2`}> 
         {queryItems.map((item)=>
         <div className = 'h-10 hover:shadow-slate-500 shadow-sm border-b-2 border-zinc-500'>
      

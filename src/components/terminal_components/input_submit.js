@@ -67,7 +67,7 @@ const InputAndSubmit = ({ windowWidth, dragTriggerValue, dragInputValue, isloadi
   };
 
   return (
-    <div className={`flex ${windowWidth < 651 ? '' : ''} relative w-full mt-16 h-10`}>
+    <div className={`flex ${windowWidth < 651 ? '' : ''} relative w-full mt-10 h-10`}>
       <div ref={scrollableDivRef} className={`absolute min-w-40 text-xl whitespace-nowrap overflow-x-scroll overflow-y-hidden 
       ${windowWidth < 651 ? 'w-[calc(100%-112px)]' : 'w-[calc(100%-363px)]'}  h-12 font-termina pl-1 py-1 rounded-lg pointer-events-none right-0 left-0`}>
         {splitOnPeriodArray.map((item, index) => {
@@ -100,7 +100,7 @@ const InputAndSubmit = ({ windowWidth, dragTriggerValue, dragInputValue, isloadi
           spellCheck="false"
           id="inputField"
           type="text"
-          placeholder="Type or Drag"
+          placeholder="Type or Drag Query"
           className={`w-[calc(100%)] border-4 min-w-40 ${isInputHovered ? 'border-blue-500' : 'border-transparent'} h-12 text-xl text-transparent font-semibold bg-zinc-800 font-termina p-1 rounded-lg caret-blue-500`}
           value={inputValue}
           onChange={handleChange}
@@ -110,6 +110,7 @@ const InputAndSubmit = ({ windowWidth, dragTriggerValue, dragInputValue, isloadi
 
         <div className={`${windowWidth < 651 ? 'w-0' : 'min-w-64'}`}></div>
       </div>
+      
     </div>
   );
 };
