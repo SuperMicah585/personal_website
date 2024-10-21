@@ -1,5 +1,7 @@
+import {project_data_object} from './micah_data_objects';
+
 // Individual data arrays - move these definitions above the micah object
-const project_data = [{project_name: "Climb w Friends"},{project_name: "Jason Art"},{project_name: "Worldle"},{project_name: "Twilio Prefix Map"}];
+const project_data = project_data_object;
 const hobby_data = [{hobby_name: "Rock Climbing"},{hobby_name: "Dancing"},{hobby_name: "Running"},{hobby_name: "Video Games"}];
 const tech_stack_data = [{tech_name: "Frameworks",front_end:['React','Tailwind'],back_end:["Express.js","Flask"]},{tech_name: "Languages",front_end:['CSS','HTML','Javascript'],back_end:['Python,Javascript'],databases:['SQL']},
 {tech_name: "Libraries"}];
