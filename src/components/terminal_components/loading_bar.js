@@ -35,7 +35,7 @@ return(
 }
 {isLoading?null:
     <pre
-className="ml-5 mt-5 font-termina text-sm"
+className=" ml-5 mt-5 font-termina text-sm"
 dangerouslySetInnerHTML={{
  __html: terminalDisplay ? formatJSON(terminalDisplay) : '',
 }}

@@ -1,16 +1,45 @@
-import {project_data_object,tech_stack_data_object} from './micah_data_objects';
+import {project_data_object,tech_stack_data_object,hobby_data_object,education_data_object,work_experience_data_object} from './micah_data_objects';
 
 // Individual data arrays - move these definitions above the micah object
 const project_data = project_data_object;
-const hobby_data = [{hobby_name: "Rock Climbing"},{hobby_name: "Dancing"},{hobby_name: "Running"},{hobby_name: "Video Games"}];
+const hobby_data = hobby_data_object;
 const tech_stack_data = tech_stack_data_object;
-const education_data = [{education_name: "Computer Science",degree:'Minor'},{education_name: "Financial Economics",degree:'Bachelors'}];
-const work_experience_data = [{job_title: "Technical Support Engineer"},{job_title: "College Dining Hall"},{job_title: "Beer Boy"}];
+const education_data = education_data_object;
+const work_experience_data = work_experience_data_object;
 
 // List function for accessing data from micahData
-const list = (resource, name = null) => {
-//add a date_after,date_before, and description_contains method
+const list = ({ resource, date_greater_than = null, date_less_than = null} = {}) =>  {
+
+    if(!date_greater_than && !date_less_than){
         return micahData[resource];
+    }
+    
+    let tmp_array= []
+        if (date_greater_than){
+            const greater_than_date = new Date(date_greater_than);
+            tmp_array = micahData[resource].filter((item) => {
+                const string_to_date = new Date(item.start_date);
+                return string_to_date > greater_than_date; // Return true if the item should be included
+            });
+
+
+         
+        }
+
+
+
+        if (date_less_than){
+            const less_than_date = new Date(date_less_than);
+            tmp_array = tmp_array.filter((item) => {
+                const string_to_date = new Date(item.start_date);
+       
+                return string_to_date < less_than_date; // Return true if the item should be included
+            });
+        }
+   
+
+//add a date_after,date_before, and description_contains method
+        return tmp_array;
     
 };
 
@@ -41,8 +70,11 @@ const grab_query_data = (key,identifier,resource) =>{
     }
 
 }
-
-
+//micah.hobbies.list({date_greater_than:'2021-01-20'})
+/*
+date_greater_than = 
+date_less_than = 
+*/
 
 // Data sources
 const micahData = {
@@ -55,18 +87,35 @@ const micahData = {
 
 // micah object with methods to access the data
 const micah = {
-    projects: {list: (identifier = null) => list('projects', identifier), fetch: (identifier) => fetch('projects', identifier)},
-    hobbies: {list: (identifier = null) => list('hobbies', identifier), fetch: (identifier) => fetch('hobbies', identifier)},
-    tech_stack: {list: (identifier = null) => list('tech_stack', identifier), fetch: (identifier) => fetch('tech_stack', identifier)},
-    education: {list: (identifier = null) => list('education', identifier), fetch: (identifier) => fetch('education', identifier)},
-    work_experience: {list: (identifier = null) => list('work_experience', identifier), fetch: (identifier) => fetch('work_experience', identifier)}
+    projects: {
+        list: (params) => list({ resource: 'projects', ...params }),
+        fetch: (identifier) => fetch('projects', identifier)
+    },
+    hobbies: {
+        list: (params) => list({ resource: 'hobbies', ...params }),
+        fetch: (identifier) => fetch('hobbies', identifier)
+    },
+    tech_stack: {
+        list: (params) => list({ resource: 'tech_stack', ...params }),
+        fetch: (identifier) => fetch('tech_stack', identifier)
+    },
+    education: {
+        list: (params) => list({ resource: 'education', ...params }),
+        fetch: (identifier) => fetch('education', identifier)
+    },
+    work_experience: {
+        list: (params) => list({ resource: 'work_experience', ...params }),
+        fetch: (identifier) => fetch('work_experience', identifier)
+    }
 };
+
 
 // parseArray function that uses micah object to list data based on input
 const parseArray = (queryArray) => {
     const queryString = `${queryArray[0]}.${queryArray[1]}.${queryArray[2]}`;
     if(queryArray[0] ==='micah'){
     try{
+
     return eval(queryString); // Pass the identifier as the 3rd element in queryArray
     }
     catch{
