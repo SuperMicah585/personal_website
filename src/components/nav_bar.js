@@ -4,8 +4,10 @@ const NavBar = ({scrollPosition, terminalPositition, projectPositition, homePosi
     
 const [currentPosition, setCurrenPosition] = useState('HOME')
 
+
 const [middleY, setMiddleY] = useState(0);
 const items = [
+
     'HOME',
     'PROJECTS',
     'ABOUT'
@@ -61,14 +63,19 @@ scrollElementCallBack(e.target.innerText)
 }
 
 
+
+
+
+
+
     return(
     
-        <div className='fixed mt-1 flex w-full justify-center sm:justify-end sm:right-5 z-50 gap-5'>
-     
+        <div className='fixed mt-1 flex w-full items-center justify-center sm:justify-end sm:right-5 z-50 gap-5'>
+
         {items.map((header)=>
             <div 
   onClick={(e) => handleClick(e)} 
-  className={`relative text-yellow-300 duration-100 hover:border-b-2 border-yellow-300 font-bold text-xl text-opacity-75 hover:text-opacity-100 hover:cursor-pointer
+  className={`relative text-yellow-300 duration-100 border-b-2 border-transparent hover:border-b-2 font-bold text-xl text-opacity-75 hover:text-opacity-100 hover:cursor-pointer
     ${header === currentPosition? 'border-b-2 border-yellow-300' : ''}`}
 >
   {header}
