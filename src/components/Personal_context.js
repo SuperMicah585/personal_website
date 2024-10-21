@@ -1,5 +1,5 @@
-import React,{forwardRef,useState} from 'react'
-
+import React,{forwardRef,useState,useRef} from 'react'
+import beach_house_mp3 from './beach_house.mp3'
 const Personal_Context = forwardRef(({windowWidth}, ref) =>{
 
   const [musicON, setMusicOn] = useState(false)
@@ -15,7 +15,8 @@ const Personal_Context = forwardRef(({windowWidth}, ref) =>{
 }
 
 const handleMusicClick = () =>{
-    setMusicOn(!musicON)
+   togglePlayPause()
+
 
 }
     const GifComponent = () => {
@@ -30,10 +31,16 @@ const handleMusicClick = () =>{
         );
       };
 
-const textArray = [
-'HEY,','','',
-'',"I'M",'',
-'','','MICAH!']
+      const audioRef = useRef(new Audio(beach_house_mp3));
+
+      const togglePlayPause = () => {
+        if (musicON) {
+            audioRef.current.pause();
+        } else {
+            audioRef.current.play();
+        }
+        setMusicOn(!musicON); // Toggle play state
+    };
 
     return(
         <>
@@ -54,6 +61,8 @@ const textArray = [
             <div className='w-full flex justify-center xl:justify-end' > MI<div onClick = {handleMusicClick} className = { `${musicON?'text-yellow-300':''} flex items-center cursor-pointer hover:opacity-50`}> 
         {musicSVG(musicON)}</div> <div className ={`${musicON?'text-yellow-300':''}`}> AH</div>
  </div>
+
+
 
 
             </div>

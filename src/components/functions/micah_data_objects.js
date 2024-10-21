@@ -23,4 +23,10 @@ export const project_data_object =
     description:'An interactive map that allows user to view all North American phone number area codes and their respective availability within Twilio'
 }];
 
+
+export const tech_stack_data_object = [
+{tech_name: "Frameworks",front_end:['React','Tailwind','Bootstrap'],back_end:["Express.js","Flask"]},
+{tech_name: "Languages",front_end:['CSS','HTML','Javascript'],back_end:['Python,Javascript'],databases:['SQL']},
+{tech_name: "Libraries",front_end:['leaflet.js'],back_end:['turf.js']}]
+
  
