@@ -13,11 +13,11 @@ const LoadingBarAndTextDisplay = ({windowWidth, loadingState,terminalDisplay,isL
       
         // Second, style the values (string values after the closing span tag)
         const formattedJSON = formattedKeysJSON.replace(/<\/span>(\s*"[^"]*")/g, (match, p1) => {
-          return `</span><span class="text-amber-700 opacity-75 font-termina font-semibold text-sm">${p1}</span>`;
+          return `</span><span class="text-zinc-400 opacity-75 font-termina font-semibold text-sm">${p1}</span>`;
         });
     
         const FinalformattedJSON = formattedJSON.replace(/<\/span>(\s*\[[^\]]*\])/g, (match, p1) => {
-            return `</span><span class="text-green-700 opacity-75 font-termina font-semibold text-sm">${p1}</span>`;
+            return `</span><span class="text-green-300 opacity-40 font-termina font-semibold text-sm">${p1}</span>`;
           });
       
         

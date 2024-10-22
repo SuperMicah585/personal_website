@@ -58,7 +58,7 @@ const handleMusicClick = () =>{
 
             <div className='w-full flex justify-center' > I'M</div>
 
-            <div className='w-full flex justify-center xl:justify-end' > MI<div onClick = {handleMusicClick} className = { `${musicON?'text-yellow-300':''} flex items-center cursor-pointer hover:opacity-50`}> 
+            <div className='w-full flex justify-center xl:justify-end' > MI<div onClick = {handleMusicClick} className = { `${musicON?'text-yellow-300 animate-pulse':''} flex items-center cursor-pointer hover:opacity-50`}> 
         {musicSVG(musicON)}</div> <div className ={`${musicON?'text-yellow-300':''}`}> AH</div>
  </div>
 

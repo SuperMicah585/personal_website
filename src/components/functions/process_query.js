@@ -10,38 +10,54 @@ const work_experience_data = work_experience_data_object;
 // List function for accessing data from micahData
 const list = ({ resource, date_greater_than = null, date_less_than = null} = {}) =>  {
 
+    let tmp_array= []
+
     if(!date_greater_than && !date_less_than){
         return micahData[resource];
     }
     
-    let tmp_array= []
-        if (date_greater_than){
-            const greater_than_date = new Date(date_greater_than);
-            tmp_array = micahData[resource].filter((item) => {
-                const string_to_date = new Date(item.start_date);
-                return string_to_date > greater_than_date; // Return true if the item should be included
-            });
+    if(date_greater_than || date_less_than){
 
+        tmp_array = process_greater_less(resource,date_greater_than,date_less_than,tmp_array)
 
-         
-        }
+    }
 
-
-
-        if (date_less_than){
-            const less_than_date = new Date(date_less_than);
-            tmp_array = tmp_array.filter((item) => {
-                const string_to_date = new Date(item.start_date);
-       
-                return string_to_date < less_than_date; // Return true if the item should be included
-            });
-        }
    
 
 //add a date_after,date_before, and description_contains method
         return tmp_array;
     
 };
+
+const process_greater_less = (resource,date_greater_than,date_less_than,tmp_array) =>{
+
+
+    if (date_greater_than){
+        const greater_than_date = new Date(date_greater_than);
+        tmp_array = micahData[resource].filter((item) => {
+            const string_to_date = new Date(item.start_date);
+            return string_to_date > greater_than_date; // Return true if the item should be included
+        });
+
+
+     
+    }
+
+
+
+    if (date_less_than){
+        const less_than_date = new Date(date_less_than);
+        tmp_array = tmp_array.filter((item) => {
+            const string_to_date = new Date(item.start_date);
+   
+            return string_to_date < less_than_date; // Return true if the item should be included
+        });
+    }
+
+    return tmp_array;
+
+
+}
 
 const fetch = (resource, identifier) => {
     switch(resource){
