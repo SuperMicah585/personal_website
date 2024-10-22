@@ -2,14 +2,15 @@ import { BrowserRouter as Router, Route, Routes, Link,Navigate } from 'react-rou
 import React,{useState} from 'react';
 const DevDoc = () => {
 
-const [dropdownToggle,setDropdownToggle] = useState(false)
-const [selectedDropDown,setselectedDropDown] = useState('')
+const [dropdownToggle,setDropdownToggle] = useState({"Projects":false,"Hobbies":false,"Tech Stack":false,
+"Education":false,"Work Experience":false})
+
 const subResources = ['Projects','Hobbies','Tech Stack','Education','Work Experience']
 
 const chevron = (item) => {
- 
+
 return(
-    (dropdownToggle && selectedDropDown===item)?
+    (dropdownToggle[item])?
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="size-2">
 <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
 </svg>:
@@ -23,46 +24,71 @@ return(
 )
 }
 
-const handleDropDownClick = (dropDownString) =>{
 
 
-if(selectedDropDown === dropDownString || selectedDropDown ===''){
-setDropdownToggle(prevState => !prevState); // Toggle the dropdown state using the current state
-}
+const dropDownItems = {
+    "Projects": ["Overview","List","Fetch"],
+    "Hobbies": ["Overview","List","Fetch"],
+    "Tech Stack": ["Overview","List","Fetch"],
+    "Education": ["Overview","List","Fetch"],
+    "Work Experience": ["Overview","List","Fetch"],
+ 
+  };
 
 
-setselectedDropDown(dropDownString)
-}
+
+
+  const handleDropDownClick = (dropDownString) => {
+    setDropdownToggle((prevState) => ({
+      ...prevState, // Copy the previous state
+      [dropDownString]: !prevState[dropDownString] // Toggle the selected dropdown
+    }));
+  };
 return(
     <>
-
+   
 
     <div className = 'flex gap-10 mr-10'>
 
-    <div className ='flex min-w-40 border-r border-slate-200 justify-center flex-col gap-5'>
-    {subResources.map((item) =>
-    
-    <div onClick ={() => handleDropDownClick(item)} className = 'ml-5 flex items-center gap-1 cursor-pointer hover:opacity-75 hover:gap-0 duration-700' > {item}  
+    <div className='min-w-40 overflow-hidden border-r border-slate-200 '>
+        <div className = 'mt-20 flex flex-col font-termina gap-5'>
+  {subResources.map((item) => (
+    <div className='flex flex-col justify-center ' key={item}>
+      <div 
+        onClick={() => handleDropDownClick(item)} 
+        className='ml-5 flex items-center gap-1 cursor-pointer hover:opacity-75 hover:gap-0 duration-700 '
+      >
+        {item}
+        {chevron(item)}
+      </div>
 
-{chevron(item)}
-    
-  </div>
-    )
-
-
-        }
-
+      {/* Sub-items */}
+      <div className='flex flex-col gap-2 ml-8 whitespace-nowrap text-sm'>
+        {dropdownToggle[item] && (
+          dropDownItems[item].map((subItem) => (
+            <div 
+              key={subItem} 
+              className='cursor-pointer w-fit text-slate-600 hover:text-black border-transparent border-b hover:border-black inline-block'
+            >
+              {subItem}
+            </div>
+          ))
+        )}
+      </div>
     </div>
+  ))}
+</div>
+</div>
 
     <div>
-    <div className = 'flex '>
-        <div className = 'text-6xl'> Micah's Resources </div>
+    <div className = 'flex  '>
+        <div className = 'text-6xl font-termina'> Micah's Resources </div>
 
     </div>
     <div className = 'absolute left-0 w-screen border-b border-slate-200'> </div>
-    <div className = 'mt-5'>
+    <div className = 'mt-5 text-base font-termina'>
           <p> The subresources of Micah's API lets you find specific information about the human Micah. You can fetch specific information
-            about Micah(i.e His project Climb w Friends), or list all projects that he has worked on.
+            about Micah(i.e his project Climb w Friends), or list all projects that he has worked on.
             </p> 
 
             <p> <br/>

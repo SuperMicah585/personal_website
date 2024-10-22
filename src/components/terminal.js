@@ -64,6 +64,15 @@ const setIsInputHoveredCallBack = (value) =>{
 
 }
 
+
+  const openDocumentation = () => {
+    // Get the current URL and append the desired path
+    const currentUrl = window.location.origin; // Get the base URL (e.g., https://example.com)
+    const documentationUrl = `${currentUrl}/about_documentation`; // Construct the new URL
+
+    // Open the new URL in a new tab
+    window.open(documentationUrl, '_blank');
+  };
   
   
 
@@ -73,15 +82,15 @@ return(
         <div className = {`flex relative flex-col h-content w-screen bg-zinc-900 ${windowWidth>650?'p-10':'p-5'} box-border`}>
 
             <div className = ' w-full flex max-[650px]:justify-center max-[650px]:text-3xl text-opacity-75 font-semibold top-0 text-yellow-300 z-25 text-5xl font-termina'>
-              <div className = ' flex gap-2'> 
+              <div onClick = {()=>openDocumentation()}  className = ' flex gap-2 cursor-pointer hover:opacity-75'> 
               <div>ABOUT</div>
-              <Link to={'/about_documentation'}>
-              <div className ='cursor-pointer text-yellow-300 opacity-75 hover:opacity-100'>  
+          
+              <div className =' text-yellow-300 '>  
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
 </svg>
 </div>
-  </Link>
+
               </div> 
               </div>
 
