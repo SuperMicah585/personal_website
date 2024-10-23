@@ -20,6 +20,7 @@ const [navigateToHeader, setNavigateToHeader] = useState({
 });
 
 const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+const [mobileToggle, setMobileToggle] = useState(0);
 //const [navigateTrigger,setNavigateTrigger] = useState(0)
 
 /*
@@ -65,7 +66,7 @@ const scrollToOverview = (element,subresource) => {
         }, []);
 
 useEffect(() => {
-    console.log(navigateToHeader.resource)
+    
     switch (navigateToHeader.resource) {
         case 'Projects':
             switch (navigateToHeader.subresource) {
@@ -198,18 +199,33 @@ useEffect(() => {
     }
 }, [navigateToHeader]);
 
+const toggleMobile = () =>{
+
+return(
+    setMobileToggle(prev=>prev+1)
+)
+
+}
+
 return(
     <>
    
 
     <div className = 'flex gap-10 mr-10'>
 
- <SideBar windowWidth = {windowWidth} navigateToHeaderCallBack = {navigateToHeaderCallBack}/>
+ <SideBar mobileToggle = {mobileToggle} windowWidth = {windowWidth} navigateToHeaderCallBack = {navigateToHeaderCallBack}/>
 
   
     <div className = 'absolute h-screen overflow-y-scroll'>
     <div className = 'fixed bg-white z-20 w-full'>
-        <div className = {`${windowWidth>750?'ml-48 text-6xl mt-5':'flex justify-start items-start text-xl p-10'} font-semibold text-6xl font-termina text-ellipsis	`}> {"Micah's Resources"} </div>
+        <div className = {`${windowWidth>750?'ml-48 text-6xl mt-5 font-semibold text-6xl font-termina text-ellipsis':'flex justify-start items-start text-xl p-10'}`}>
+ {windowWidth>750? "Micah's Resources":
+ 
+ <div onClick = {() => toggleMobile()} className = 'cursor-pointer text-slate-500 hover:opacity-50 p-2 border border-slate-200 rounded'> 
+ <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-10">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+</svg> </div> 
+}</div>
 
     
 
