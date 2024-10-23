@@ -58,10 +58,28 @@ const handleMusicClick = () =>{
 
             <div className='w-full flex justify-center' > I'M</div>
 
-            <div className='w-full flex justify-center xl:justify-end' > MI<div onClick = {handleMusicClick} className = { `${musicON?'text-yellow-300 animate-pulse':''} flex items-center cursor-pointer hover:opacity-50`}> 
-        {musicSVG(musicON)}</div> <div className ={`${musicON?'text-yellow-300':''}`}> AH</div>
- </div>
+    
 
+            <div className='w-full flex justify-center xl:justify-end' >
+            <div className = 'flex flex-col items-center'>
+
+
+            <span onClick = {handleMusicClick} className = { `${musicON?'text-yellow-300 animate-pulse':''} flex items-center cursor-pointer hover:opacity-50`}>MICAH </span>
+
+            <div className = {`${!musicON?'animate-bounce':'text-yellow-300'}`} > 
+
+
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 18.75 7.5-7.5 7.5 7.5" />
+  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 7.5-7.5 7.5 7.5" />
+</svg>
+
+
+</div>
+ </div>
+ 
+ </div>
 
 
 
