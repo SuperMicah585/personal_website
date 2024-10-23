@@ -1,92 +1,221 @@
 import { BrowserRouter as Router, Route, Routes, Link,Navigate } from 'react-router-dom';
-import React,{useState} from 'react';
+import React,{useRef,useState,useEffect} from 'react';
+import Project from './dev_components/project'
+import Hobbies from './dev_components/hobbies'
+import TechStack from './dev_components/tech_stack';
+import Education from './dev_components/education'
+import WorkExperience from './dev_components/work_experience'
+import SideBar from './dev_components/side_bar'
+
 const DevDoc = () => {
+const educationRef = useRef({})
+const hobbyRef = useRef({})
+const techStackRef = useRef({})
+const projectRef = useRef({})
+const WorkExperienceRef = useRef({})
+//console.log(educationRef.current.propertiesRef.current)
+const [navigateToHeader, setNavigateToHeader] = useState({
+    resource: '', 
+    subresource: '' // Fix the typo here
+});
 
-const [dropdownToggle,setDropdownToggle] = useState({"Projects":false,"Hobbies":false,"Tech Stack":false,
-"Education":false,"Work Experience":false})
+const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+//const [navigateTrigger,setNavigateTrigger] = useState(0)
 
-const subResources = ['Projects','Hobbies','Tech Stack','Education','Work Experience']
-
-const chevron = (item) => {
-
-return(
-    (dropdownToggle[item])?
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="size-2">
-<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-</svg>:
-
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="size-2">
-<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-</svg>
-
-    
-    
-)
-}
-
-
-
-const dropDownItems = {
-    "Projects": ["Overview","List","Fetch"],
-    "Hobbies": ["Overview","List","Fetch"],
-    "Tech Stack": ["Overview","List","Fetch"],
-    "Education": ["Overview","List","Fetch"],
-    "Work Experience": ["Overview","List","Fetch"],
- 
-  };
-
-
-
-
-  const handleDropDownClick = (dropDownString) => {
-    setDropdownToggle((prevState) => ({
-      ...prevState, // Copy the previous state
-      [dropDownString]: !prevState[dropDownString] // Toggle the selected dropdown
+/*
+educationRef.current.overViewRef.current // Points to the paragraph
+educationRef.current.propertiesRef.current // Points to the first table
+educationRef.current.ListRef.current // Points to the second table
+*/
+const navigateToHeaderCallBack = (subResourceString,resourceString) => {
+    setNavigateToHeader(prev => ({
+        ...prev,            // Copy the previous state
+        resource: resourceString,       // Update resource with new value
+        subresource: subResourceString  // Update subresource with new value
     }));
-  };
+};
+
+const scrollToOverview = (element,subresource) => {
+ 
+    console.log(element.current[subresource],subresource)
+    if (element.current && element.current[subresource].current) {
+        element.current[subresource].current.scrollIntoView({
+            behavior: 'smooth', // Optional: smooth scroll animation
+            block: 'center',     // Scroll to the start of the element
+        });
+    }
+};
+
+        // Function to update the width
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+    
+        useEffect(() => {
+            // Set the initial width
+            setWindowWidth(window.innerWidth);
+    
+            // Add event listener for window resize
+            window.addEventListener('resize', handleResize);
+    
+            // Cleanup the event listener on component unmount
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            };
+        }, []);
+
+useEffect(() => {
+    console.log(navigateToHeader.resource)
+    switch (navigateToHeader.resource) {
+        case 'Projects':
+            switch (navigateToHeader.subresource) {
+                case 'Overview':
+                    scrollToOverview(projectRef,'overViewRef')
+                    // Handle Projects Overview
+                    break;
+                case 'Properties':
+                    scrollToOverview(projectRef,'propertiesRef')
+                    // Handle Projects Properties
+                    break;
+                case 'List':
+                    scrollToOverview(projectRef,'ListRef')
+                    // Handle Projects List
+                    break;
+                case 'Fetch':
+                    scrollToOverview(projectRef,'FetchRef')
+                    // Handle Projects fetch
+                    break;
+                default:
+                   
+                    // Handle unknown subresource
+                    break;
+            }
+            break;  // Add break here to prevent falling through
+
+        case 'Hobbies':
+            switch (navigateToHeader.subresource) {
+                case 'Overview':
+                    scrollToOverview(hobbyRef,'overViewRef')
+                    // Handle Hobbies Overview
+                    break;
+                case 'Properties':
+                    scrollToOverview(hobbyRef,'propertiesRef')
+                    // Handle Hobbies Properties
+                    break;
+                case 'List':
+                    scrollToOverview(hobbyRef,'ListRef')
+                    // Handle Hobbies List
+                    break;
+                case 'Fetch':
+                    scrollToOverview(hobbyRef,'FetchRef')
+                    // Handle Hobbies fetch
+                    break;
+                default:
+                    // Handle unknown subresource
+                    break;
+            }
+            break;
+
+        case 'Tech Stack':
+            switch (navigateToHeader.subresource) {
+                case 'Overview':
+                    scrollToOverview(techStackRef,'overViewRef')
+                    // Handle Tech Stack Overview
+                    break;
+                case 'Properties':
+                    scrollToOverview(techStackRef,'propertiesRef')
+                    // Handle Tech Stack Properties
+                    break;
+                case 'List':
+                    scrollToOverview(techStackRef,'ListRef')
+                    // Handle Tech Stack List
+                    break;
+                case 'Fetch':
+                    scrollToOverview(techStackRef,'FetchRef')
+                    // Handle Tech Stack fetch
+                    break;
+                default:
+              
+                    // Handle unknown subresource
+                    break;
+            }
+            break;
+
+        case 'Education':
+         
+            switch (navigateToHeader.subresource) {
+                
+                case 'Overview':
+                    
+                    scrollToOverview(educationRef,'overViewRef')
+                    // Handle Education Overview
+                    break;
+                case 'Properties':
+                    scrollToOverview(educationRef,'propertiesRef')
+                    // Handle Education Properties
+                    break;
+                case 'List':
+                    scrollToOverview(educationRef,'ListRef')
+                    // Handle Education List
+                    break;
+                case 'Fetch':
+                    scrollToOverview(educationRef,'FetchRef')
+                    // Handle Education fetch
+                    break;
+                default:
+                    // Handle unknown subresource
+                    break;
+            }
+            break;
+
+        case 'Work Experience':
+            switch (navigateToHeader.subresource) {
+                case 'Overview':
+                    scrollToOverview(WorkExperienceRef,'overViewRef')
+                    // Handle Work Experience Overview
+                    break;
+                case 'Properties':
+                    scrollToOverview(WorkExperienceRef,'propertiesRef')
+                    // Handle Work Experience Properties
+                    break;
+                case 'List':
+                    scrollToOverview(WorkExperienceRef,'ListRef')
+                    // Handle Work Experience List
+                    break;
+                case 'Fetch':
+                    scrollToOverview(WorkExperienceRef,'FetchRef')
+                    // Handle Work Experience fetch
+                    break;
+                default:
+                    // Handle unknown subresource
+                    break;
+            }
+            break;
+
+        default:
+            // Handle unknown resource
+            break;
+    }
+}, [navigateToHeader]);
+
 return(
     <>
    
 
     <div className = 'flex gap-10 mr-10'>
 
-    <div className='min-w-40 overflow-hidden border-r border-slate-200 '>
-        <div className = 'mt-20 flex flex-col font-termina gap-5'>
-  {subResources.map((item) => (
-    <div className='flex flex-col justify-center ' key={item}>
-      <div 
-        onClick={() => handleDropDownClick(item)} 
-        className='ml-5 flex items-center gap-1 cursor-pointer hover:opacity-75 hover:gap-0 duration-700 '
-      >
-        {item}
-        {chevron(item)}
-      </div>
+ <SideBar windowWidth = {windowWidth} navigateToHeaderCallBack = {navigateToHeaderCallBack}/>
 
-      {/* Sub-items */}
-      <div className='flex flex-col gap-2 ml-8 whitespace-nowrap text-sm'>
-        {dropdownToggle[item] && (
-          dropDownItems[item].map((subItem) => (
-            <div 
-              key={subItem} 
-              className='cursor-pointer w-fit text-slate-600 hover:text-black border-transparent border-b hover:border-black inline-block'
-            >
-              {subItem}
-            </div>
-          ))
-        )}
-      </div>
+  
+    <div className = 'absolute h-screen overflow-scroll'>
+    <div className = 'fixed bg-white z-20 w-full'>
+        <div className = {`${windowWidth>750?'ml-48 mt-5':'flex justify-center p-10'} font-semibold text-6xl font-termina`}> Micah's Resources </div>
+
+    
+
+    <div className = 'relative border-b border-slate-200'> </div>
     </div>
-  ))}
-</div>
-</div>
-
-    <div>
-    <div className = 'flex  '>
-        <div className = 'text-6xl font-termina'> Micah's Resources </div>
-
-    </div>
-    <div className = 'absolute left-0 w-screen border-b border-slate-200'> </div>
-    <div className = 'mt-5 text-base font-termina'>
+    <div className = {`${windowWidth>750?'ml-48 mt-10 ':'flex flex-col justify-center p-10'} mt-40 text-base font-light font-termina`}>
           <p> The subresources of Micah's API lets you find specific information about the human Micah. You can fetch specific information
             about Micah(i.e his project Climb w Friends), or list all projects that he has worked on.
             </p> 
@@ -108,12 +237,21 @@ return(
         <li>Work Experience resource</li>
     </ul>
     </div>
+    <div className = 'max-w-full box-border p-10 ml-36'> 
+    <Project ref = {projectRef}/>
+    <Hobbies ref = {hobbyRef}/>
+    <TechStack ref = {techStackRef}/>
+    <Education ref = {educationRef}/>
+    <WorkExperience ref = {WorkExperienceRef}/>
+    </div>
+    
 
             
 
     </div>
-
     </div>
+
+    
     </>
 )
 
