@@ -37,7 +37,7 @@ const Education = forwardRef((_, ref) =>{
     <div className = 'flex flex-col p-5'>{object.map((item)=>
     <div 
     className ={`flex flex-col gap-5 ${item.name !== 'education_name'?'mt-5':''}`} > 
-    <div className = 'flex gap-10'>
+    <div className = 'flex sm:gap-5 gap-2'>
     <div className = 'font-semibold'>{item.name}</div>
     
     <div className = 'opacity-50 text-sm'>{item.type}</div>  

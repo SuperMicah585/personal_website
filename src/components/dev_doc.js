@@ -209,7 +209,7 @@ return(
   
     <div className = 'absolute h-screen overflow-y-scroll'>
     <div className = 'fixed bg-white z-20 w-full'>
-        <div className = {`${windowWidth>750?'ml-48 text-6xl mt-5':'flex justify-center items-center text-xl p-10'} font-semibold text-6xl font-termina text-ellipsis	`}> {"Micah's Resources"} </div>
+        <div className = {`${windowWidth>750?'ml-48 text-6xl mt-5':'flex justify-start items-start text-xl p-10'} font-semibold text-6xl font-termina text-ellipsis	`}> {"Micah's Resources"} </div>
 
     
 
@@ -237,7 +237,7 @@ return(
         <li>Work Experience resource</li>
     </ul>
     </div>
-    <div className = {`max-w-full box-border p-10 ${windowWidth>750?'ml-36':''}`}> 
+    <div className = {`max-w-full box-border p-5 ${windowWidth>750?'ml-36':''}`}> 
     <Project ref = {projectRef}/>
     <Hobbies ref = {hobbyRef}/>
     <TechStack ref = {techStackRef}/>
