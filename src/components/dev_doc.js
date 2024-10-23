@@ -253,7 +253,7 @@ return(
         <li>Work Experience resource</li>
     </ul>
     </div>
-    <div className = {`max-w-full box-border p-5 ${windowWidth>750?'ml-36':''}`}> 
+    <div className = {`max-w-full box-border ${windowWidth>750?'ml-36 p-10':'p-5 '}`}> 
     <Project ref = {projectRef}/>
     <Hobbies ref = {hobbyRef}/>
     <TechStack ref = {techStackRef}/>
