@@ -21,6 +21,7 @@ const [navigateToHeader, setNavigateToHeader] = useState({
 
 const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 const [mobileToggle, setMobileToggle] = useState(0);
+const [mobileCloseToggle, setMobileCloseToggle] = useState(0);
 //const [navigateTrigger,setNavigateTrigger] = useState(0)
 
 /*
@@ -197,6 +198,8 @@ useEffect(() => {
             // Handle unknown resource
             break;
     }
+
+    setMobileCloseToggle(prev=>prev+1)
 }, [navigateToHeader]);
 
 const toggleMobile = () =>{
@@ -213,7 +216,7 @@ return(
 
     <div className = 'flex gap-10 mr-10'>
 
- <SideBar mobileToggle = {mobileToggle} windowWidth = {windowWidth} navigateToHeaderCallBack = {navigateToHeaderCallBack}/>
+ <SideBar mobileCloseToggle = {mobileCloseToggle} mobileToggle = {mobileToggle} windowWidth = {windowWidth} navigateToHeaderCallBack = {navigateToHeaderCallBack}/>
 
   
     <div className = 'absolute h-screen overflow-y-scroll'>
