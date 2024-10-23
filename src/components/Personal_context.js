@@ -15,7 +15,9 @@ const Personal_Context = forwardRef(({windowWidth}, ref) =>{
 }
 
 const handleMusicClick = () =>{
+   if(!musicON){
    togglePlayPause()
+   }
 
 
 }
@@ -49,10 +51,10 @@ const handleMusicClick = () =>{
 
 
 
-        <div className = ' absolute h-screen w-content flex items-center justify-center top-0 left-0'>
-        <div style={{
+        <div ref={ref}  className = ' absolute h-screen w-content flex items-center justify-center top-0 left-0'>
+      <div style={{
   textShadow: '-1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black'
-}} ref={ref} className = 'p-10 relative w-screen text-8xl sm:text-9xl font-monet left-0 flex flex-col items-center gap-20 text-blue-500 font-black opacity-50'>   
+}} className = {`p-10 duration-[10000ms] ${musicON?'opacity-0':'opacity-50'} relative w-screen text-8xl sm:text-9xl font-monet left-0 flex flex-col items-center gap-20 text-blue-500 font-black`}>   
 
             <div className = 'w-full flex justify-center xl:justify-start'> HEY, </div>
 
@@ -64,7 +66,7 @@ const handleMusicClick = () =>{
             <div className = 'flex flex-col items-center'>
 
 
-            <span onClick = {handleMusicClick} className = { `${musicON?'text-yellow-300 animate-pulse':''} flex items-center cursor-pointer hover:opacity-50`}>MICAH </span>
+            <span onClick = {handleMusicClick} className = { `${musicON?'text-yellow-300 animate-pulse':'cursor-pointer'} flex items-center hover:opacity-50`}>MICAH </span>
 
             <div className = {`${!musicON?'animate-bounce':'text-yellow-300'}`} > 
 
