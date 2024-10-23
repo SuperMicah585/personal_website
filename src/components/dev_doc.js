@@ -213,9 +213,9 @@ return(
 
     
 
-    <div className = 'relative border-b mt-10 border-slate-200'> </div>
+    <div className = {`${windowWidth>750?'mt-10':''} relative border-b border-slate-200`}> </div>
     </div>
-    <div className = {`${windowWidth>750?'ml-48':'flex flex-col justify-center p-10'} mt-40 text-base font-light font-termina`}>
+    <div className = {`${windowWidth>750?'ml-48 mt-40':'flex flex-col justify-center mt-28 p-10'}  text-base font-light font-termina`}>
           <p> The subresources of Micah's API lets you find specific information about the human Micah. You can fetch specific information
             about Micah(i.e his project Climb w Friends), or list all projects that he has worked on.
             </p> 
