@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react'
 
 const NavBar = ({scrollPosition, terminalPositition, projectPositition, homePositition, scrollElementCallBack}) =>{
-    
+
 const [currentPosition, setCurrenPosition] = useState('HOME')
 
 
@@ -14,6 +14,11 @@ const items = [
 
 
 ]
+
+
+    
+
+
 
 
 useEffect(() => {

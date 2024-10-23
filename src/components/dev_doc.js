@@ -207,15 +207,15 @@ return(
  <SideBar windowWidth = {windowWidth} navigateToHeaderCallBack = {navigateToHeaderCallBack}/>
 
   
-    <div className = 'absolute h-screen overflow-scroll'>
+    <div className = 'absolute h-screen overflow-y-scroll'>
     <div className = 'fixed bg-white z-20 w-full'>
-        <div className = {`${windowWidth>750?'ml-48 mt-5':'flex justify-center p-10'} font-semibold text-6xl font-termina`}> Micah's Resources </div>
+        <div className = {`${windowWidth>750?'ml-48 text-6xl mt-5':'flex justify-center items-center text-xl p-10'} font-semibold text-6xl font-termina text-ellipsis	`}> {"Micah's Resources"} </div>
 
     
 
-    <div className = 'relative border-b border-slate-200'> </div>
+    <div className = 'relative border-b mt-10 border-slate-200'> </div>
     </div>
-    <div className = {`${windowWidth>750?'ml-48 mt-10 ':'flex flex-col justify-center p-10'} mt-40 text-base font-light font-termina`}>
+    <div className = {`${windowWidth>750?'ml-48':'flex flex-col justify-center p-10'} mt-40 text-base font-light font-termina`}>
           <p> The subresources of Micah's API lets you find specific information about the human Micah. You can fetch specific information
             about Micah(i.e his project Climb w Friends), or list all projects that he has worked on.
             </p> 
@@ -237,7 +237,7 @@ return(
         <li>Work Experience resource</li>
     </ul>
     </div>
-    <div className = 'max-w-full box-border p-10 ml-36'> 
+    <div className = {`max-w-full box-border p-10 ${windowWidth>750?'ml-36':''}`}> 
     <Project ref = {projectRef}/>
     <Hobbies ref = {hobbyRef}/>
     <TechStack ref = {techStackRef}/>
