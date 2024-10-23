@@ -24,11 +24,7 @@ const [mobileToggle, setMobileToggle] = useState(0);
 const [mobileCloseToggle, setMobileCloseToggle] = useState(0);
 //const [navigateTrigger,setNavigateTrigger] = useState(0)
 
-/*
-educationRef.current.overViewRef.current // Points to the paragraph
-educationRef.current.propertiesRef.current // Points to the first table
-educationRef.current.ListRef.current // Points to the second table
-*/
+
 const navigateToHeaderCallBack = (subResourceString,resourceString) => {
     setNavigateToHeader(prev => ({
         ...prev,            // Copy the previous state
