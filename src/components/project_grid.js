@@ -90,7 +90,7 @@ const ProjectGrid = forwardRef((_, ref) => {
                   {svgICons.map((svg, svgIndex) => (
                     <div
                       key={svgIndex}
-                      className="flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-slate-500 hover:bg-opacity-50 rounded-full p-2 pointer-events-auto" // Allow pointer events for the SVG wrapper
+                      className="flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-slate-500 hover:bg-opacity-50 rounded-full p-1 pointer-events-auto" // Allow pointer events for the SVG wrapper
                       onClick={() => handleIconClick(svg.name,imageObj)} // Call the click handler with the svg
                     >
                       {svg.svg}
