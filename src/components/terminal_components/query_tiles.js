@@ -71,7 +71,7 @@ const QueryTiles = forwardRef(({windowWidth,setDragInputValueCallBack,setDragTri
 
         <div ref={ref} className = {`overflow-y-scroll ${windowWidth>650?' max-h-96 min-w-64':'max-h-40 w-full'} rounded-lg border-zinc-500 border-2`}> 
         {queryItems.map((item)=>
-        <div className = 'h-10 hover:shadow-slate-500 shadow-sm border-b-2 border-zinc-500'>
+        <div className = 'flex items-center justify-center h-10 hover:shadow-slate-500 shadow-sm border-b-2 border-zinc-500'>
      
      <Draggable onDrag={handleDrag} position={{x: position.x,y: dragID ===item.text? position.y- offset.y:position.y} }
          
@@ -95,7 +95,7 @@ const QueryTiles = forwardRef(({windowWidth,setDragInputValueCallBack,setDragTri
          <div data-value= {item.endpoint} 
         className={`hover:text-lg overflow-hidden hover:opacity-75 ${dragID===item.text?'absolute':''} 
         p-1.5 text-center ${item.type==='parent'?' text-white':' text-slate-500'} 
-        font-semibold opacity-75 h-10 ${isDragging?'cursor-grabbing':'cursor-pointer'} z-50  ${windowWidth>650?'min-w-64':'w-full'}`}>{item.text}</div></Draggable>
+        font-semibold opacity-75 h-10 ${isDragging?'cursor-grabbing':'cursor-pointer'} z-50  ${windowWidth>650?'min-w-64':'w-fit'}`}>{item.text}</div></Draggable>
        
         </div>
         )}
