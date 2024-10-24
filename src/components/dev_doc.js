@@ -217,11 +217,11 @@ return(
   
     <div className = 'absolute h-screen overflow-y-scroll'>
     <div className = 'fixed bg-white z-20 w-full'>
-        <div className = {`${windowWidth>750?'ml-48 text-6xl mt-5 font-semibold text-6xl font-termina text-ellipsis':'flex justify-start items-start text-xl p-10'}`}>
+        <div className = {`${windowWidth>750?'ml-48 text-6xl mt-5 font-semibold text-6xl font-termina text-ellipsis':'flex h-24 justify-start items-center text-xl'}`}>
  {windowWidth>750? "Micah's Resources":
  
- <div onClick = {() => toggleMobile()} className = 'cursor-pointer text-slate-500 hover:opacity-50 p-2 border border-slate-200 rounded'> 
- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-10">
+ <div onClick = {() => toggleMobile()} className = 'ml-2 cursor-pointer text-slate-500 hover:opacity-50 p-2 border border-slate-300 rounded'> 
+ <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-7">
   <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
 </svg> </div> 
 }</div>
@@ -230,7 +230,7 @@ return(
 
     <div className = {`${windowWidth>750?'mt-10':''} relative border-b border-slate-200`}> </div>
     </div>
-    <div className = {`${windowWidth>750?'ml-48 mt-40':'flex flex-col justify-center mt-28 p-10'}  text-base font-light font-termina`}>
+    <div className = {`${windowWidth>750?'ml-48 mt-40':'flex flex-col justify-center mt-20 p-10'}  text-base font-light font-termina`}>
           <p> The subresources of Micah's API lets you find specific information about the human Micah. You can fetch specific information
             about Micah(i.e his project Climb w Friends), or list all projects that he has worked on.
             </p> 
