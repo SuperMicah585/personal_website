@@ -2,7 +2,7 @@
 Micah's Personal Website
 
 ## Purpose: 
-To give Jason Phelps an online space that highlights the work hes done over his art career
+To give Micah a centralized place to show his coding projects.
 
 Live Demo: personalwebsite-production-a0fd.up.railway.app
 
