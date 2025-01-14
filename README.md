@@ -10,7 +10,8 @@ Live Demo: personalwebsite-production-a0fd.up.railway.app
 - **Resource Documentation**: Full Documentation so that users can query the Micah Resource
 - **Animations**: Hover, Drag and drop, scroll event listeners, Fading, etc.
 - **Responsive Design**: Works seamlessly across devices.
-- **Micah Resource**: Learn about Micah by either dragging and dropping queries, or by writing your own! 
+- **Micah Resource**: Learn about Micah by either dragging and dropping queries, or by writing your own!
+- **Micah's Projects**: Centralized place to show all of Micah's projects.
 
 ## Technologies Used
 - **Frontend**: React, Thailwind
