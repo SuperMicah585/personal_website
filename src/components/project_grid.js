@@ -5,7 +5,7 @@ import jasonart from './project_images/Jasonart.jpeg';
 import twiliomap from './project_images/twiliomap.jpg';
 import worldle from './project_images/worldle.jpg';
 import climbwfriendsv2 from './project_images/climb_w_friends_v2.jpg'
-import TrustHub from './project_images/TrustHubFunction.jpg'
+import SproutMe from './project_images/SproutMe.jpg'
 
 const ProjectGrid = forwardRef((_, ref) => {
 
@@ -27,11 +27,12 @@ const ProjectGrid = forwardRef((_, ref) => {
 
   const images = [
     { url: 'https://icy-mushroom-0a940671e.4.azurestaticapps.net/', github: 'https://github.com/SuperMicah585/climb_w_friends_v2',name: 'Climb w Friends v2', image: climbwfriendsv2 },
+    { url: 'https://sproutme-please.com/', github: 'https://github.com/SuperMicah585/SproutMe',name: 'SproutMe EDM Show Finder', image: SproutMe },
     { url: 'https://climbwfriends-production.up.railway.app/demo/', github:'https://github.com/SuperMicah585/ClimbWFriends', name: 'Climb w Friends v1', image: climbingmap },
     { url: 'https://jasonwadephelps-art-production.up.railway.app/', github: 'https://github.com/SuperMicah585/JasonWadePhelps-Art', name: 'Jason Art', image: jasonart },
     { url: 'https://twilio-prefix-map-na-8377-dev.twil.io/index.html', github: 'https://github.com/TwilioMicah/Area_Code_Map', name: 'Twilio Prefix Map', image: twiliomap },
     { url: 'https://supermicah585.github.io/Worldle_V2/', github: 'https://github.com/SuperMicah585/Worldle_V2',name: 'Worldle', image: worldle },
-    { url: 'https://trust-hub-v2-2889.twil.io/index.html', github: 'https://github.com/TwilioMicah/TrustHub-v2',name: 'TrustHub Function', image: TrustHub },
+    
 
   ];
 
