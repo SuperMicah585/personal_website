@@ -26,7 +26,7 @@ const ProjectGrid = forwardRef((_, ref) => {
   }, []);
 
   const images = [
-    { url: 'https://icy-mushroom-0a940671e.4.azurestaticapps.net/', github: 'https://github.com/SuperMicah585/climb_w_friends_v2',name: 'Climb w Friends v2', image: climbwfriendsv2 },
+    { url: 'https://climbwithfriends.net/', github: 'https://github.com/SuperMicah585/climb_w_friends_v2',name: 'Climb w Friends v2', image: climbwfriendsv2 },
     { url: 'https://sproutme-please.com/', github: 'https://github.com/SuperMicah585/SproutMe',name: 'SproutMe EDM Show Finder', image: SproutMe },
     { url: 'https://climbwfriends-production.up.railway.app/demo/', github:'https://github.com/SuperMicah585/ClimbWFriends', name: 'Climb w Friends v1', image: climbingmap },
     { url: 'https://jasonwadephelps-art-production.up.railway.app/', github: 'https://github.com/SuperMicah585/JasonWadePhelps-Art', name: 'Jason Art', image: jasonart },
