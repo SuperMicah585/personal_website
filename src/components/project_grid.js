@@ -6,6 +6,7 @@ import twiliomap from './project_images/twiliomap.jpg';
 import worldle from './project_images/worldle.jpg';
 import climbwfriendsv2 from './project_images/climb_w_friends_v2.jpg'
 import SproutMe from './project_images/SproutMe.jpg'
+import TFTPad from './project_images/tftpad.png'
 
 const ProjectGrid = forwardRef((_, ref) => {
 
@@ -26,10 +27,10 @@ const ProjectGrid = forwardRef((_, ref) => {
   }, []);
 
   const images = [
-    { url: 'https://climbwithfriends.net/', github: 'https://github.com/SuperMicah585/climb_w_friends_v2',name: 'Climb w Friends v2', image: climbwfriendsv2 },
-    { url: 'https://sproutme-please.com/', github: 'https://github.com/SuperMicah585/SproutMe',name: 'SproutMe EDM Show Finder', image: SproutMe },
-    { url: 'https://climbwfriends-production.up.railway.app/demo/', github:'https://github.com/SuperMicah585/ClimbWFriends', name: 'Climb w Friends v1', image: climbingmap },
-    { url: 'https://jasonwadephelps-art-production.up.railway.app/', github: 'https://github.com/SuperMicah585/JasonWadePhelps-Art', name: 'Jason Art', image: jasonart },
+    { url: 'https://climbwithfriends.net/', github: 'https://github.com/SuperMicah585/climb_w_friends_v2',name: 'Climb w Friends 2.0', image: climbwfriendsv2 },
+    { url: 'https://sproutme-please.com/', github: 'https://github.com/SuperMicah585/SproutMe',name: 'SproutMe', image: SproutMe },
+    { url: 'https://climbwfriends-production.up.railway.app/demo/', github:'https://github.com/SuperMicah585/ClimbWFriends', name: 'Climb w Friends 1.0', image: climbingmap },
+    { url: 'https://tftpad.com/', github: 'https://github.com/SuperMicah585/TFTPad', name: 'TFTPad', image: TFTPad },
     { url: 'https://twilio-prefix-map-na-8377-dev.twil.io/index.html', github: 'https://github.com/TwilioMicah/Area_Code_Map', name: 'Twilio Prefix Map', image: twiliomap },
     { url: 'https://supermicah585.github.io/Worldle_V2/', github: 'https://github.com/SuperMicah585/Worldle_V2',name: 'Worldle', image: worldle },
     
