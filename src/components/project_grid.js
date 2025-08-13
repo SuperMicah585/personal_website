@@ -1,9 +1,6 @@
 import React,{useState,useEffect,forwardRef} from 'react'
 import { motion } from "framer-motion";
-import climbingmap from './project_images/climbingmap.jpeg';
-import jasonart from './project_images/Jasonart.jpeg';
 import twiliomap from './project_images/twiliomap.jpg';
-import worldle from './project_images/worldle.jpg';
 import climbwfriendsv2 from './project_images/climb_w_friends_v2.jpg'
 import SproutMe from './project_images/SproutMe.jpg'
 import TFTPad from './project_images/tftpad.png'
@@ -27,12 +24,10 @@ const ProjectGrid = forwardRef((_, ref) => {
   }, []);
 
   const images = [
-    { url: 'https://climbwithfriends.net/', github: 'https://github.com/SuperMicah585/climb_w_friends_v2',name: 'Climb w Friends 2.0', image: climbwfriendsv2 },
+    { url: 'https://climbwithfriends.net/', github: 'https://github.com/SuperMicah585/climb_w_friends_v2',name: 'Climb w Friends', image: climbwfriendsv2 },
     { url: 'https://sproutme-please.com/', github: 'https://github.com/SuperMicah585/SproutMe',name: 'SproutMe', image: SproutMe },
-    { url: 'https://climbwfriends-production.up.railway.app/demo/', github:'https://github.com/SuperMicah585/ClimbWFriends', name: 'Climb w Friends 1.0', image: climbingmap },
     { url: 'https://tftpad.com/', github: 'https://github.com/SuperMicah585/TFTPad', name: 'TFTPad', image: TFTPad },
     { url: 'https://twilio-prefix-map-na-8377-dev.twil.io/index.html', github: 'https://github.com/TwilioMicah/Area_Code_Map', name: 'Twilio Prefix Map', image: twiliomap },
-    { url: 'https://supermicah585.github.io/Worldle_V2/', github: 'https://github.com/SuperMicah585/Worldle_V2',name: 'Worldle', image: worldle },
     
 
   ];
@@ -104,7 +99,10 @@ const ProjectGrid = forwardRef((_, ref) => {
                   
                     </div>
                   ))}
+
+
                 </div>
+
               </div>
             </div>
           </motion.div>

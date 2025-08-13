@@ -50,7 +50,7 @@ const QueryTiles = forwardRef(({windowWidth,setDragInputValueCallBack,setDragTri
         const draggedRect = e.target.getBoundingClientRect(); // Draggable element's bounding box
     
     
-        // Check if there's an overlap (or if they're touching)
+       
         if (
           draggedRect.right > inputRect.left &&  // Right edge of draggable is past the left edge of target
           draggedRect.left < inputRect.right &&  // Left edge of draggable is before the right edge of target
